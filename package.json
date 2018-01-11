@@ -1,0 +1,35 @@
+{
+    "name": "n-test",
+    "version": "1.0.0",
+    "description": "A node module containing a collection of test tasks and utilities for Next applications",
+    "main": "index.js",
+    "bin": {
+        "n-test": "bin/n-test"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "precommit": "node_modules/.bin/secret-squirrel",
+        "commitmsg": "node_modules/.bin/secret-squirrel-commitmsg",
+        "prepush": "make verify -j3"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Financial-Times/n-test.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Financial-Times/n-test/issues"
+    },
+    "homepage": "https://github.com/Financial-Times/n-test#readme",
+    "dependencies": {
+        "chai": "^4.1.2",
+        "commander": "^2.13.0",
+        "mocha": "^4.1.0",
+        "puppeteer": "git+https://github.com/GoogleChrome/puppeteer.git#master",
+        "shellpromise": "^1.4.0"
+    },
+    "devDependencies": {
+        "@financial-times/n-gage": "^1.19.2"
+    }
+}

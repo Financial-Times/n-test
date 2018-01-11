@@ -1,0 +1,10 @@
+*.env*
+.DS_Store
+/node_modules/
+.idea/n
+.pa11yci.js
+.stylelintrc
+npm-debug.log
+.eslintrc.js
+.editorconfig
+package-lock.json
