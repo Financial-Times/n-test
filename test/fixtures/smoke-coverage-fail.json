@@ -1,0 +1,20 @@
+{
+	"tests": [
+	  {
+      "url": "/coverage/bad",
+      "expect": {
+        "cssCoverage": [
+          { "url": "/bad", "threshold": 50 }
+        ]
+      }
+	  },
+	  {
+      "url": "/coverage/okay",
+      "expect": {
+        "cssCoverage": [
+          { "url": "/okay", "threshold": 40 }
+        ]
+      }
+	  }
+	]
+}
