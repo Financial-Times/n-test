@@ -14,7 +14,9 @@ program
 	.command('*')
 	.description('')
 	.action(function (app) {
-		utils.exit(`The command ${app} is not known`);
+		// eslint-disable-next-line no-console
+		console.error(`The command ${app} is not known`);
+		process.exit(1);
 	});
 
 

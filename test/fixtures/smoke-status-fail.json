@@ -1,16 +1,16 @@
 {
-	"tests": [
-	  {
+  "tests": [
+    {
       "url": "/status/503",
       "expect": {
         "status": 200
       }
-	  },
-	  {
+    },
+    {
       "url": "/status/404",
       "expect": {
         "status": 404
       }
-	  }
-	]
+    }
+  ]
 }

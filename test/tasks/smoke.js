@@ -1,3 +1,5 @@
+/*globals beforeAll */
+
 const server = require('../server/app');
 const expect = require('chai').expect;
 const smoke = require('../../lib/smoke');
