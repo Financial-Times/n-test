@@ -5,7 +5,7 @@
       "expect": {
         "cssCoverage": [
           {
-            "url": "/good",
+            "url": "/coverage/good",
             "threshold": 50
           }
         ]
@@ -16,7 +16,8 @@
       "expect": {
         "cssCoverage": [
           {
-            "url": "/okay",
+            "url": "/coverage/okay",
+            "blah": true,
             "threshold": 50
           }
         ]

@@ -38,7 +38,7 @@ describe('Smoke Tests of the Smoke', () => {
 
 
 
-	describe.only('CSS coverage', () => {
+	describe('CSS coverage', () => {
 		test('tests should pass if CSS is well covered', async () => {
 
 			return smoke.run({

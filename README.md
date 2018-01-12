@@ -7,4 +7,4 @@ A node module containing a collection of test tasks and utilities for Next appli
 
 ## Tasks
 
-`n-test smoke`
+`n-test smoke` - Runs smoke tests
