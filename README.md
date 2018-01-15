@@ -24,6 +24,7 @@ Runs a set of basic tests against URLs. These are specified in a JSON config (de
       "url": "/article/UUID",
       "expect": {
         "status": 200,
+        "initialStatus": 302,
         "cssCoverage": [
           {
             "url": "/article/UUID",

@@ -48,6 +48,10 @@ app.get('/coverage/bad', (req, res) => {
 	`);
 });
 
+app.get('/redirect', (req, res) => {
+	res.redirect('/status/200');
+});
+
 if (!module.parent) {
 	app.listen(process.env.PORT || 3004);
 } else {

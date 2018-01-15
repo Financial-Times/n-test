@@ -38,6 +38,17 @@ describe('Smoke Tests of the Smoke', () => {
 	});
 
 
+	describe('Initial status code', () => {
+		test('Initial status should return the status of the first request in the chain', () => {
+			return smoke.run({
+				host: 'http://localhost:3004',
+				config: 'test/fixtures/smoke-status-redirect.json',
+			})
+			.then(({results}) => {
+				expect(results.numPassedTests).toEqual(1);
+			});
+		});
+	});
 
 	describe('CSS coverage', () => {
 		test('tests should pass if CSS is well covered', async () => {

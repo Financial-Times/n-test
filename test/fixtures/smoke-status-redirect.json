@@ -1,0 +1,11 @@
+{
+  "tests": [
+    {
+      "url": "/redirect",
+      "expect": {
+        "status": 200,
+        "initialStatus": 302
+      }
+    }
+  ]
+}
