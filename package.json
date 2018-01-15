@@ -25,8 +25,7 @@
     "dependencies": {
         "commander": "^2.13.0",
         "jest": "^22.0.6",
-        "puppeteer": "git+https://github.com/GoogleChrome/puppeteer.git#master",
-        "shellpromise": "^1.4.0"
+        "puppeteer": "^1.0.0"
     },
     "devDependencies": {
         "@financial-times/n-gage": "^1.19.2",
