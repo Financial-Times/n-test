@@ -45,7 +45,7 @@ describe('Smoke Tests of the Smoke', () => {
 				config: 'test/fixtures/smoke-status-redirect.json',
 			})
 			.then(({results}) => {
-				expect(results.numPassedTests).toEqual(1);
+				expect(results.numPassedTests).toEqual(2);
 			});
 		});
 	});
