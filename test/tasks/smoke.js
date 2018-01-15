@@ -1,7 +1,6 @@
-/*globals beforeAll */
+/*globals beforeAll, expect */
 
 const server = require('../server/app');
-const expect = require('chai').expect;
 const smoke = require('../../lib/smoke');
 
 describe('Smoke Tests of the Smoke', () => {
@@ -19,8 +18,8 @@ describe('Smoke Tests of the Smoke', () => {
 				config: 'test/fixtures/smoke-status-pass.json'
 			})
 			.then(({results}) => {
-				expect(results.numPassedTests).to.equal(2);
-				expect(results.numFailedTests).to.equal(0);
+				expect(results.numPassedTests).toEqual(2);
+				expect(results.numFailedTests).toEqual(0);
 
 			});
 		});
@@ -32,8 +31,8 @@ describe('Smoke Tests of the Smoke', () => {
 				config: 'test/fixtures/smoke-status-fail.json',
 			})
 			.then(({results}) => {
-				expect(results.numPassedTests).to.equal(1);
-				expect(results.numFailedTests).to.equal(1);
+				expect(results.numPassedTests).toEqual(1);
+				expect(results.numFailedTests).toEqual(1);
 			});
 		});
 	});
@@ -48,8 +47,8 @@ describe('Smoke Tests of the Smoke', () => {
 				config: 'test/fixtures/smoke-coverage-pass.json'
 			})
 			.then(({results}) => {
-				expect(results.numPassedTests).to.equal(2);
-				expect(results.numFailedTests).to.equal(0);
+				expect(results.numPassedTests).toEqual(2);
+				expect(results.numFailedTests).toEqual(0);
 
 			});
 		});
@@ -61,8 +60,8 @@ describe('Smoke Tests of the Smoke', () => {
 				config: 'test/fixtures/smoke-coverage-fail.json',
 			})
 			.then(({results}) => {
-				expect(results.numPassedTests).to.equal(0);
-				expect(results.numFailedTests).to.equal(2);
+				expect(results.numPassedTests).toEqual(0);
+				expect(results.numFailedTests).toEqual(2);
 			});
 		});
 	});
