@@ -4,7 +4,7 @@
     "description": "A node module containing a collection of test tasks and utilities for Next applications",
     "main": "index.js",
     "bin": {
-        "n-test": "./bin/n-test"
+        "n-test": "./bin/n-test.js"
     },
     "scripts": {
         "test": "make test",
