@@ -1,5 +1,5 @@
 {
-    "name": "n-test",
+    "name": "@financial-times/n-test",
     "version": "1.0.0",
     "description": "A node module containing a collection of test tasks and utilities for Next applications",
     "main": "index.js",
