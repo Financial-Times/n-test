@@ -7,7 +7,7 @@
         "n-test": "bin/n-test"
     },
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1",
+        "test": "make test",
         "precommit": "node_modules/.bin/secret-squirrel",
         "commitmsg": "node_modules/.bin/secret-squirrel-commitmsg",
         "prepush": "make verify -j3"
