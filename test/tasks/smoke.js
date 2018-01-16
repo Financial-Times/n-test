@@ -15,7 +15,7 @@ describe('Smoke Tests of the Smoke', () => {
 
 			return smoke.run({
 				host: 'http://localhost:3004',
-				config: 'test/fixtures/smoke-status-pass.json'
+				config: 'test/fixtures/smoke-status-pass.js'
 			})
 			.then(({results}) => {
 				expect(results.numPassedTests).toEqual(2);
@@ -28,7 +28,7 @@ describe('Smoke Tests of the Smoke', () => {
 
 			return smoke.run({
 				host: 'http://localhost:3004',
-				config: 'test/fixtures/smoke-status-fail.json',
+				config: 'test/fixtures/smoke-status-fail.js',
 			})
 			.then(({results}) => {
 				expect(results.numPassedTests).toEqual(1);
@@ -38,24 +38,24 @@ describe('Smoke Tests of the Smoke', () => {
 	});
 
 
-	describe('Initial status code', () => {
-		test('Initial status should return the status of the first request in the chain', () => {
-			return smoke.run({
-				host: 'http://localhost:3004',
-				config: 'test/fixtures/smoke-status-redirect.json',
-			})
-			.then(({results}) => {
-				expect(results.numPassedTests).toEqual(2);
-			});
-		});
-	});
+	// describe('Initial status code', () => {
+	// 	test('Initial status should return the status of the first request in the chain', () => {
+	// 		return smoke.run({
+	// 			host: 'http://localhost:3004',
+	// 			config: 'test/fixtures/smoke-status-redirect.js',
+	// 		})
+	// 		.then(({results}) => {
+	// 			expect(results.numPassedTests).toEqual(2);
+	// 		});
+	// 	});
+	// });
 
 	describe('CSS coverage', () => {
 		test('tests should pass if CSS is well covered', async () => {
 
 			return smoke.run({
 				host: 'http://localhost:3004',
-				config: 'test/fixtures/smoke-coverage-pass.json'
+				config: 'test/fixtures/smoke-coverage-pass.js'
 			})
 			.then(({results}) => {
 				expect(results.numPassedTests).toEqual(2);
@@ -68,7 +68,7 @@ describe('Smoke Tests of the Smoke', () => {
 
 			return smoke.run({
 				host: 'http://localhost:3004',
-				config: 'test/fixtures/smoke-coverage-fail.json',
+				config: 'test/fixtures/smoke-coverage-fail.js',
 			})
 			.then(({results}) => {
 				expect(results.numPassedTests).toEqual(0);
