@@ -2,7 +2,7 @@ const openSmokeTests = require('../lib/smoke/open');
 
 module.exports = (program) => {
 	program
-		.command('open-smoke')
+		.command('open-sesame')
 		.option('-a', '--auth', 'Authenticate with FT_NEXT_BACKEND_KEY')
 		.option('-h, --host [value]', 'Set the hostname to use for all tests')
 		.option('-c, --config [value]', 'Path to config file used to test. Defaults to ./test/smoke.json')
