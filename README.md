@@ -27,7 +27,8 @@ module.exports = [
           {
             "url": "/article/UUID",
             "threshold": 20
-          }
+          },
+        pageErrors: 0
         ]
       },
       '/some/path': 200
