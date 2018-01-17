@@ -6,7 +6,15 @@ module.exports = [{
 				status: 404
 			},
 			'/status/302': 302,
-			'/redirect': '/status/200'
+			'/redirect': '/status/200',
+			'/post': {
+				method: 'POST',
+				postData: 'stuff',
+				status: 200,
+				content: (content) => {
+					return content.includes('stuff');
+				}
+			}
 
 		}
 	}

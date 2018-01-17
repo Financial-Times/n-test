@@ -52,6 +52,17 @@ app.get('/redirect', (req, res) => {
 	res.redirect('/status/200');
 });
 
+app.post('/post', (req, res) => {
+	let body = '';
+	req.on('data', (chunk) => {
+		console.log('body is', body);
+		body += chunk.toString();
+	});
+	req.on('end', () => {
+;		res.send('GOT: ' + body);
+	});
+});
+
 if (!module.parent) {
 	app.listen(process.env.PORT || 3004);
 } else {
