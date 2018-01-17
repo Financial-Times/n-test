@@ -55,7 +55,6 @@ app.get('/redirect', (req, res) => {
 app.post('/post', (req, res) => {
 	let body = '';
 	req.on('data', (chunk) => {
-		console.log('body is', body);
 		body += chunk.toString();
 	});
 	req.on('end', () => {
