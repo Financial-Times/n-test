@@ -18,7 +18,7 @@ describe('Smoke Tests of the Smoke', () => {
 				config: 'test/fixtures/smoke-status-pass.js'
 			})
 			.then(({results}) => {
-				expect(results.numPassedTests).toEqual(2);
+				expect(results.numPassedTests).toEqual(5);
 				expect(results.numFailedTests).toEqual(0);
 
 			});
@@ -36,19 +36,6 @@ describe('Smoke Tests of the Smoke', () => {
 			});
 		});
 	});
-
-
-	// describe('Initial status code', () => {
-	// 	test('Initial status should return the status of the first request in the chain', () => {
-	// 		return smoke.run({
-	// 			host: 'http://localhost:3004',
-	// 			config: 'test/fixtures/smoke-status-redirect.js',
-	// 		})
-	// 		.then(({results}) => {
-	// 			expect(results.numPassedTests).toEqual(2);
-	// 		});
-	// 	});
-	// });
 
 	describe('CSS coverage', () => {
 		test('tests should pass if CSS is well covered', async () => {
