@@ -31,7 +31,12 @@ module.exports = [
         pageErrors: 0
         ]
       },
-      '/some/path': 200
+      '/some/path': 200,
+      '/post': {
+          status: 200,
+          body: { "some": "data" },
+          method: 'POST'
+      }
     }
   },
   {

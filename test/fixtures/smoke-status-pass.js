@@ -9,7 +9,7 @@ module.exports = [{
 			'/redirect': '/status/200',
 			'/post': {
 				method: 'POST',
-				postData: 'stuff',
+				body: 'stuff',
 				status: 200,
 				content: (content) => {
 					return content.includes('stuff');
