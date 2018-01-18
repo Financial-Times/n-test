@@ -24,12 +24,15 @@ module.exports = [
     urls: {
       '/': {
         status: 200,
-        "cssCoverage": [
-          {
-            "url": "/article/UUID",
-            "threshold": 20
-          },
-        pageErrors: 0,
+        "cssCoverage": {
+            '/article/UUID': 20
+        },
+        elements: {
+            '.selector': 4,
+            '.other-selector': 'Contains this text'
+        },
+        cacheHeaders: true, //verify Cache-Control and Surrogate headers are sensible
+        pageErrors: 0, // NOTE: should probably only use this with ads disabled
         performance: true //checks firstPaint/firstContentfulPaint against baseline. default = 2000, or can specify.
         ]
       },
