@@ -7,7 +7,7 @@ program.version(require('../package.json').version);
 
 
 require('../tasks/smoke')(program);
-require('../tasks/open-sesame')(program);
+require('../tasks/open')(program);
 
 
 // Handle unknown commands
