@@ -28,7 +28,8 @@ module.exports = [
             "url": "/article/UUID",
             "threshold": 20
           },
-        pageErrors: 0
+        pageErrors: 0,
+        performance: true //checks firstPaint/firstContentfulPaint against baseline
         ]
       },
       '/some/path': 200,
