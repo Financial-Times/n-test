@@ -1,16 +1,14 @@
 module.exports = [{
 		urls: {
 			'/coverage/good': {
-				cssCoverage: [{
-					'url': 'coverage/good',
-					'threshold': 50
-				}]
+				cssCoverage: {
+					'coverage/good': 50
+				}
 			},
 			'/coverage/okay': {
-				cssCoverage: [{
-					'url': 'coverage/okay',
-					'threshold': 50
-				}]
+				cssCoverage: {
+					'coverage/okay': 50
+				}
 			}
 		}
 	}

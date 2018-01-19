@@ -20,15 +20,19 @@ Runs a set of basic tests against URLs. These are specified in a JSON config (de
 ```
 module.exports = [
   {
+    name: 'basic',
     urls: {
       '/': {
         status: 200,
-        "cssCoverage": [
-          {
-            "url": "/article/UUID",
-            "threshold": 20
-          },
-        pageErrors: 0,
+        "cssCoverage": {
+            '/article/UUID': 20
+        },
+        elements: {
+            '.selector': 4,
+            '.other-selector': 'Contains this text'
+        },
+        cacheHeaders: true, //verify Cache-Control and Surrogate headers are sensible
+        pageErrors: 0, // NOTE: should probably only use this with ads disabled
         performance: true //checks firstPaint/firstContentfulPaint against baseline. default = 2000, or can specify.
         ]
       },
@@ -41,6 +45,7 @@ module.exports = [
     }
   },
   {
+    name: 'headers',
     headers: {
       'some-header': 1
     }
@@ -64,6 +69,6 @@ module.exports = [
 
 Opens an instance of Chrome with all of the URLs specified in the smoke tests, for manual verification.
 
-`n-test open-sesame`
+`n-test open`
 
-`n-test smoke --config path/to/config.js --host https://local.ft.com:3002`
+`n-test open headers -b --config path/to/config.js --host https://local.ft.com:3002`
