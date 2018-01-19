@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = {
-	smoke: require('./tasks/smoke')
+	smoke: require('./lib/smoke')
 };
