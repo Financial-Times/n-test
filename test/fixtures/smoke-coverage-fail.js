@@ -7,7 +7,7 @@ module.exports = [{
 		},
 		'/coverage/okay': {
 			cssCoverage: {
-				'coverage/okay': 50
+				'coverage/okay': 60
 			}
 		}
 	}
