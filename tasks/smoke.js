@@ -1,7 +1,5 @@
 const smokeTests = require('../lib/smoke');
 
-
-
 module.exports = (program) => {
 	program
 		.command('smoke')

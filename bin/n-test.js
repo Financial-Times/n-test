@@ -3,6 +3,8 @@
 
 let program = require('commander');
 
+const halp = require('../tasks/halp');
+
 program.version(require('../package.json').version);
 
 
@@ -15,9 +17,14 @@ program
 	.command('*')
 	.description('')
 	.action(function (app) {
-		// eslint-disable-next-line no-console
-		console.error(`The command ${app} is not known`);
-		process.exit(1);
+
+			if(app && app.toUpperCase().startsWith('HALP')) {
+				halp();
+			} else {
+				// eslint-disable-next-line no-console
+				console.error(`The command ${app} is not known`);
+				process.exit(1);
+			}
 	});
 
 
