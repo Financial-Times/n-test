@@ -10,11 +10,13 @@ module.exports = (program) => {
 		.action((opts) => {
 			smokeTests.run(opts).catch(err => {
 				if(err.failed) {
+					// eslint-disable-next-line no-console
 					console.error(`${err.failed.length} URLs failed their check.`);
 				} else {
+					// eslint-disable-next-line no-console
 					console.error(err);
 				}
 				process.exit(0);
-			})
+			});
 		});
 };
