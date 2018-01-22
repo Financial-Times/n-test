@@ -25,6 +25,7 @@
     "dependencies": {
         "chalk": "^2.3.0",
         "commander": "^2.13.0",
+        "directly": "^2.0.6",
         "jest": "^22.0.6",
         "puppeteer": "^1.0.0"
     },
