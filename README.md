@@ -65,10 +65,23 @@ module.exports = [
 ]
 ```
 
-#### Open Sesame
+** Using programatically **
 
-Opens an instance of Chrome with all of the URLs specified in the smoke tests, for manual verification.
+```
+const nTest = require('@financial-times/n-test');
+nTest.smoke.run({ auth: true, host: 'local.ft.com:3002' })
+	.then((results) => { //all passed })
+	.catch((results) => { //some failed })
+```
+
+#### Open
+
+Opens an instance of Chromium with all of the URLs specified in the smoke tests, for manual verification.
 
 `n-test open`
 
-`n-test open headers -b --config path/to/config.js --host https://local.ft.com:3002`
+`n-test open headers --breakpoint M --config path/to/config.js --host https://local.ft.com:3002`
+
+#### HALPPPPP
+
+Call upon `n-test HALP` to get you through the tough times.
