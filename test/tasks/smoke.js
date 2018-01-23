@@ -11,55 +11,58 @@ describe('Smoke Tests of the Smoke', () => {
 	});
 
 	describe('status checks', () => {
-		test('tests should pass if all the urls return the correct status', async () => {
+		test('tests should pass if all the urls return the correct status', (done) => {
 
 			return smoke.run({
 				host: 'http://localhost:3004',
 				config: 'test/fixtures/smoke-status-pass.js'
 			})
-			.then(({results}) => {
-				expect(results.numPassedTests).toEqual(7);
-				expect(results.numFailedTests).toEqual(0);
-
+			.then((results) => {
+				expect(results.passed.length).toEqual(6);
+				expect(results.failed.length).toEqual(0);
+				done();
 			});
 		});
 
-		test('tests should fail if some urls return the incorrect status code', async () => {
+		test('tests should fail if some urls return the incorrect status code', (done) => {
 
 			return smoke.run({
 				host: 'http://localhost:3004',
 				config: 'test/fixtures/smoke-status-fail.js',
 			})
-			.then(({results}) => {
-				expect(results.numPassedTests).toEqual(1);
-				expect(results.numFailedTests).toEqual(1);
+			.catch((results) => {
+				expect(results.passed.length).toEqual(1);
+				expect(results.failed.length).toEqual(1);
+				done();
 			});
 		});
 	});
 
 	describe('CSS coverage', () => {
-		test('tests should pass if CSS is well covered', async () => {
+		test('tests should pass if CSS is well covered',(done) => {
 
 			return smoke.run({
 				host: 'http://localhost:3004',
 				config: 'test/fixtures/smoke-coverage-pass.js'
 			})
-			.then(({results}) => {
-				expect(results.numPassedTests).toEqual(2);
-				expect(results.numFailedTests).toEqual(0);
+			.then((results) => {
+				expect(results.passed.length).toEqual(2);
+				expect(results.failed.length).toEqual(0);
+				done();
 
 			});
 		});
 
-		test('tests should fail if CSS coverage is below threshold', async () => {
+		test('tests should fail if CSS coverage is below threshold', (done) => {
 
-			return smoke.run({
+			smoke.run({
 				host: 'http://localhost:3004',
 				config: 'test/fixtures/smoke-coverage-fail.js',
 			})
-			.then(({results}) => {
-				expect(results.numPassedTests).toEqual(0);
-				expect(results.numFailedTests).toEqual(2);
+			.catch((results) => {
+				expect(results.passed.length).toEqual(0);
+				expect(results.failed.length).toEqual(2);
+				done();
 			});
 		});
 	});
