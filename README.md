@@ -1,16 +1,15 @@
 # n-test
-A node module containing a collection of test tasks and utilities for FT.com applications
-
-## Why does this exist?
-
-To share common testing CLI tasks, fixtures, snippets of useful test code for FT.com applications and components.
+A CLI tool and module for testing web applications, designed for FT.com.
 
 ## Tasks
 
 ### Smoke tests
 
-Runs a set of basic tests against URLs. These are specified in a JSON config (default location: test/smoke.js).
+FT.com is built up of dozens of microservices, that are deployed dozens of times a day. Running full browser or integration tests for each of these results in both slower development and build time.
 
+Smoke tests are designed to be a quick sanity check against a set of endpoints to check that they are actually working, rendering the elements that you expect and haven't introduced any performance regressions.
+
+Rather than the chore of writing tests, simply add some JS config (default location - tests/smoke.js) with some URLs (and optional headers) and some expectations. 
 
 `n-test smoke`
 
