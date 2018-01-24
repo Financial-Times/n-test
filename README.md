@@ -1,5 +1,5 @@
 # n-test
-A node module containing a collection of test tasks and utilities for Next applications
+A node module containing a collection of test tasks and utilities for FT.com applications
 
 ## Why does this exist?
 
@@ -7,7 +7,7 @@ To share common testing CLI tasks, fixtures, snippets of useful test code for FT
 
 ## Tasks
 
-#### Smoke tests
+### Smoke tests
 
 Runs a set of basic tests against URLs. These are specified in a JSON config (default location: test/smoke.js).
 
@@ -65,7 +65,7 @@ module.exports = [
 ]
 ```
 
-** Using programatically **
+**Using programatically**
 
 ```
 const nTest = require('@financial-times/n-test');
