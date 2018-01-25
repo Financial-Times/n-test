@@ -62,6 +62,10 @@ app.post('/post', (req, res) => {
 	});
 });
 
+app.get('/json', (req, res) => {
+	res.json({ key: 'value' });
+});
+
 if (!module.parent) {
 	app.listen(process.env.PORT || 3004);
 } else {

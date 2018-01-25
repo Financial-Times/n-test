@@ -15,6 +15,9 @@ module.exports = [{
 				content: (content) => {
 					return content.includes('stuff');
 				}
+			},
+			'/json' : {
+				content: (content) => JSON.parse(content).key === 'value'
 			}
 
 		}

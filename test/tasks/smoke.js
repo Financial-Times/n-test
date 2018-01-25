@@ -18,7 +18,7 @@ describe('Smoke Tests of the Smoke', () => {
 				config: 'test/fixtures/smoke-status-pass.js'
 			})
 			.then((results) => {
-				expect(results.passed.length).toEqual(6);
+				expect(results.passed.length).toEqual(7);
 				expect(results.failed.length).toEqual(0);
 				done();
 			});
