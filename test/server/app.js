@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 
 app.get('/status/:status', (req, res) => {
-	res.status(req.params.status).send();
+	res.status(req.params.status).send(req.params.status);
 });
 
 app.get('/coverage/good', (req, res) => {
