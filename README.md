@@ -60,6 +60,18 @@ module.exports = [
         status: 200
       }
     }
+  },
+  {
+    name: 'redirects',
+    urls: {
+      '/redirect-code': {
+        status: 302,
+        content: (eventualContent) => {
+          return eventualContent.includes('some-text');
+        }
+      },
+      '/redirect-location': '/eventual-path'
+    }
   }
 ]
 ```
