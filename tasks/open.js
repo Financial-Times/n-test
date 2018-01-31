@@ -9,5 +9,5 @@ module.exports = (program) => {
 		.option('-H, --host [value]', 'Set the hostname to use for all tests')
 
 		.description('Starts an instance of Chromium with all the URLs from the smoke test open')
-		.action(openSmokeTests);
+		.action((sets, opts) => { openSmokeTests(opts, sets) });
 };
