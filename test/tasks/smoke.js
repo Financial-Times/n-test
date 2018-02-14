@@ -70,4 +70,29 @@ describe('Smoke Tests of the Smoke', () => {
 		});
 	});
 
+	describe('Adding custom checks', () => {
+		test('should allow adding custom assertions',(done) => {
+
+			const smoke = new SmokeTests({
+				host: 'http://localhost:3004',
+				config: 'test/fixtures/smoke-custom-check.js'
+			});
+
+			smoke.addCheck('custom', async (testPage) => {
+				const metrics = await testPage.page.metrics();
+
+				return {
+					expected: `no more than ${testPage.check.custom} DOM nodes`,
+					actual: `${metrics.Nodes} nodes`,
+					result: testPage.check.custom >= metrics.Nodes
+				}
+			});
+			return smoke.run()
+			.then((results) => {
+				expect(results.passed.length).toEqual(1);
+				expect(results.failed.length).toEqual(0);
+				done();
+			});
+		});
+	});
 });

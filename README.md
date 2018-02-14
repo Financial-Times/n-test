@@ -9,7 +9,7 @@ FT.com is built up of dozens of microservices, that are deployed dozens of times
 
 Smoke tests are designed to be a quick sanity check against a set of endpoints to check that they are actually working, rendering the elements that you expect and haven't introduced any performance regressions.
 
-Rather than the chore of writing tests, simply add some JS config (default location - tests/smoke.js) with some URLs (and optional headers) and some expectations. 
+Rather than the chore of writing tests, simply add some JS config (default location - tests/smoke.js) with some URLs (and optional headers) and some expectations.
 
 `n-test smoke`
 
@@ -83,8 +83,21 @@ module.exports = [
 **Using programatically**
 
 ```
-const nTest = require('@financial-times/n-test');
-nTest.smoke.run({ auth: true, host: 'local.ft.com:3002' })
+const SmokeTests = require('@financial-times/n-test').SmokeTests;
+const smoke = new SmokeTests({ headers: { globalHeader: true },  host: 'local.ft.com:3002' });
+
+//Add custom checks like so:
+smoke.addCheck('custom', async (testPage) => {
+    const metrics = await testPage.page.metrics();
+
+    return {
+        expected: `no more than ${testPage.check.custom} DOM nodes`,
+        actual: `${metrics.Nodes} nodes`,
+        result: testPage.check.custom >= metrics.Nodes
+    }
+});
+
+nTest.smoke.runf
 	.then((results) => { //all passed })
 	.catch((results) => { //some failed });
 
