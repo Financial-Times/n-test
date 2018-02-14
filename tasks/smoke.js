@@ -2,8 +2,6 @@ const SmokeTests = require('../lib/smoke');
 
 module.exports = (program) => {
 
-
-
 	program
 		.command('smoke [sets...]')
 		.option('-a, --auth', 'Authenticate with FT_NEXT_BACKEND_KEY')

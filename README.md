@@ -83,7 +83,7 @@ module.exports = [
 **Using programatically**
 
 ```
-const SmokeTests = require('@financial-times/n-test').SmokeTests;
+const SmokeTest = require('@financial-times/n-test').SmokeTest;
 const smoke = new SmokeTests({ headers: { globalHeader: true },  host: 'local.ft.com:3002' });
 
 //Add custom checks like so:
@@ -97,11 +97,11 @@ smoke.addCheck('custom', async (testPage) => {
     }
 });
 
-nTest.smoke.runf
+smoke.run()
 	.then((results) => { //all passed })
 	.catch((results) => { //some failed });
 
-nTest.smoke.run({}, ['basic']);
+smoke.run(['basic']);
 ```
 
 #### Open
