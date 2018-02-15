@@ -37,6 +37,10 @@ module.exports = [
         cacheHeaders: true, //verify Cache-Control and Surrogate headers are sensible
         pageErrors: 0, // NOTE: should probably only use this with ads disabled
         performance: true //checks firstPaint/firstContentfulPaint against baseline. default = 2000, or can specify.
+        networkRequests: {
+            '/some-third-party.js': 1,
+            'tracking.pixel': 4 //asserts 4 network requests were made to a URL containing 'tracking.pixel'
+        }
         ]
       },
       '/some/path': 200,
