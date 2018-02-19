@@ -13,7 +13,7 @@ Rather than the chore of writing tests, simply add some JS config (default locat
 
 `n-test smoke`
 
-`n-test smoke --config path/to/config.js --host https://local.ft.com:3002`
+`n-test smoke --config path/to/config.js --host https://local.ft.com:3002 --header "X-Api-Key: 1234"`
 
 `n-test smoke basic` - runs just the set with the name 'basic'
 
