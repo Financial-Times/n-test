@@ -18,6 +18,13 @@ module.exports = [{
 			},
 			'/json' : {
 				content: (content) => JSON.parse(content).key === 'value'
+			},
+			'/network-requests': {
+				networkRequests: {
+					'/status/200': 1,
+					'/status': 2,
+					'/json': 0
+				}
 			}
 
 		}

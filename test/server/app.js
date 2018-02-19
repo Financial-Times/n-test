@@ -66,6 +66,16 @@ app.get('/json', (req, res) => {
 	res.json({ key: 'value' });
 });
 
+app.get('/network-requests', (req, res) => {
+	res.send(`
+		<body>
+			<img src="/status/200" />
+			<img src="/status/302" />
+		</body>
+	`);
+});
+
+
 if (!module.parent) {
 	app.listen(process.env.PORT || 3004);
 } else {

@@ -9,11 +9,11 @@ FT.com is built up of dozens of microservices, that are deployed dozens of times
 
 Smoke tests are designed to be a quick sanity check against a set of endpoints to check that they are actually working, rendering the elements that you expect and haven't introduced any performance regressions.
 
-Rather than the chore of writing tests, simply add some JS config (default location - tests/smoke.js) with some URLs (and optional headers) and some expectations. 
+Rather than the chore of writing tests, simply add some JS config (default location - tests/smoke.js) with some URLs (and optional headers) and some expectations.
 
 `n-test smoke`
 
-`n-test smoke --config path/to/config.js --host https://local.ft.com:3002`
+`n-test smoke --config path/to/config.js --host https://local.ft.com:3002 --header "X-Api-Key: 1234"`
 
 `n-test smoke basic` - runs just the set with the name 'basic'
 
@@ -37,6 +37,10 @@ module.exports = [
         cacheHeaders: true, //verify Cache-Control and Surrogate headers are sensible
         pageErrors: 0, // NOTE: should probably only use this with ads disabled
         performance: true //checks firstPaint/firstContentfulPaint against baseline. default = 2000, or can specify.
+        networkRequests: {
+            '/some-third-party.js': 1,
+            'tracking.pixel': 4 //asserts 4 network requests were made to a URL containing 'tracking.pixel'
+        }
         ]
       },
       '/some/path': 200,
@@ -83,12 +87,25 @@ module.exports = [
 **Using programatically**
 
 ```
-const nTest = require('@financial-times/n-test');
-nTest.smoke.run({ auth: true, host: 'local.ft.com:3002' })
+const SmokeTest = require('@financial-times/n-test').SmokeTest;
+const smoke = new SmokeTests({ headers: { globalHeader: true },  host: 'local.ft.com:3002' });
+
+//Add custom checks like so:
+smoke.addCheck('custom', async (testPage) => {
+    const metrics = await testPage.page.metrics();
+
+    return {
+        expected: `no more than ${testPage.check.custom} DOM nodes`,
+        actual: `${metrics.Nodes} nodes`,
+        result: testPage.check.custom >= metrics.Nodes
+    }
+});
+
+smoke.run()
 	.then((results) => { //all passed })
 	.catch((results) => { //some failed });
 
-nTest.smoke.run({}, ['basic']);
+smoke.run(['basic']);
 ```
 
 #### Open
