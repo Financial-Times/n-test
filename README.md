@@ -32,7 +32,8 @@ module.exports = [
         },
         elements: {
             '.selector': 4,
-            '.other-selector': 'Contains this text'
+            '.other-selector': 'Contains this text',
+	    '.some-of-these': true
         },
         cacheHeaders: true, //verify Cache-Control and Surrogate headers are sensible
         pageErrors: 0, // NOTE: should probably only use this with ads disabled
@@ -40,6 +41,8 @@ module.exports = [
         networkRequests: {
             '/some-third-party.js': 1,
             'tracking.pixel': 4 //asserts 4 network requests were made to a URL containing 'tracking.pixel'
+	    '/will-have-some-of-these.jpg': true,
+	    'should-not-load-this.js': false
         }
         ]
       },

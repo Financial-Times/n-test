@@ -23,10 +23,31 @@ module.exports = [{
 				networkRequests: {
 					'/status/200': 1,
 					'/status': 2,
-					'/json': 0
+					'/status/2': true,
+					'/json': false
+				}
+			},
+			'/coverage/good': {
+				elements: {
+					'.one': 1,
+					'.two': 1,
+					'div': 3,
+					'.does-not-exist': 0,
+					'.no-content': false
+				},
+				cssCoverage: {
+					'coverage/good': 50
+				}
+			},
+			'/coverage/okay': {
+				elements: {
+					'.one': true,
+					'.three': 0
+				},
+				cssCoverage: {
+					'coverage/okay': 50
 				}
 			}
 
-		}
 	}
-];
+}];
