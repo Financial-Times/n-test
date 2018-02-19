@@ -35,7 +35,6 @@ module.exports = [
             '.other-selector': 'Contains this text',
 	    '.some-of-these': true
         },
-        cacheHeaders: true, //verify Cache-Control and Surrogate headers are sensible
         pageErrors: 0, // NOTE: should probably only use this with ads disabled
         performance: true //checks firstPaint/firstContentfulPaint against baseline. default = 2000, or can specify.
         networkRequests: {
@@ -48,9 +47,9 @@ module.exports = [
       },
       '/some/path': 200,
       '/post': {
-          status: 200,
           body: { "some": "data" },
-          method: 'POST'
+          method: 'POST',
+    	  status: 200
       }
     }
   },
