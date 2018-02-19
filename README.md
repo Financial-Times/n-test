@@ -35,6 +35,9 @@ module.exports = [
             '.other-selector': 'Contains this text',
 	    '.some-of-these': true
         },
+	responseHeaders: {
+	  'My-Header': 'expected-value'
+	},
         cacheHeaders: true, //verify Cache-Control and Surrogate headers are sensible
         pageErrors: 0, // NOTE: should probably only use this with ads disabled
         performance: true //checks firstPaint/firstContentfulPaint against baseline. default = 2000, or can specify.
