@@ -14,57 +14,26 @@ describe('Smoke Tests of the Smoke', () => {
 		test('tests should pass if all the urls return the correct status', (done) => {
 			const smoke = new SmokeTest({
 				host: 'http://localhost:3004',
-				config: 'test/fixtures/smoke-status-pass.js'
+				config: 'test/fixtures/smoke-pass.js'
 			});
 			return smoke.run()
 			.then((results) => {
-				expect(results.passed.length).toEqual(8);
+				expect(results.passed.length).toEqual(10);
 				expect(results.failed.length).toEqual(0);
 				done();
 			});
 		});
 
-		test('tests should fail if some urls return the incorrect status code', (done) => {
+		test('tests should fail if some tests fail', (done) => {
 
 			const smoke = new SmokeTest({
 				host: 'http://localhost:3004',
-				config: 'test/fixtures/smoke-status-fail.js'
+				config: 'test/fixtures/smoke-fail.js'
 			});
 			return smoke.run()
 			.catch((results) => {
 				expect(results.passed.length).toEqual(1);
-				expect(results.failed.length).toEqual(1);
-				done();
-			});
-		});
-	});
-
-	describe('CSS coverage', () => {
-		test('tests should pass if CSS is well covered',(done) => {
-
-			const smoke = new SmokeTest({
-				host: 'http://localhost:3004',
-				config: 'test/fixtures/smoke-coverage-pass.js'
-			});
-			return smoke.run()
-			.then((results) => {
-				expect(results.passed.length).toEqual(2);
-				expect(results.failed.length).toEqual(0);
-				done();
-
-			});
-		});
-
-		test('tests should fail if CSS coverage is below threshold', (done) => {
-
-			const smoke = new SmokeTest({
-				host: 'http://localhost:3004',
-				config: 'test/fixtures/smoke-coverage-fail.js'
-			});
-			return smoke.run()
-			.catch((results) => {
-				expect(results.passed.length).toEqual(0);
-				expect(results.failed.length).toEqual(2);
+				expect(results.failed.length).toEqual(3);
 				done();
 			});
 		});

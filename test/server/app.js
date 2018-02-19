@@ -14,9 +14,10 @@ app.get('/coverage/good', (req, res) => {
 				.two { background: red; }
 				.three { background: red; }
 			</style>
-			<div class="one"></div>
-			<div class="two"></div>
-			<div class="three"></div>
+			<div class="one">1</div>
+			<div class="two">2</div>
+			<div class="three">3</div>
+			<div class="no-content"></div>
 		</body>
 	`);
 });
@@ -29,8 +30,8 @@ app.get('/coverage/okay', (req, res) => {
 				.two { background: red; }
 				.three { background: red; }
 			</style>
-			<div class="one"></div>
-			<div class="two"></div>
+			<div class="one">1</div>
+			<div class="two">2</div>
 		</body>
 	`);
 });
@@ -43,7 +44,7 @@ app.get('/coverage/bad', (req, res) => {
 				.two { background: red; }
 				.three { background: red; }
 			</style>
-			<div class="one"></div>
+			<div class="one">1</div>
 		</body>
 	`);
 });
