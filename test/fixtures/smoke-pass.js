@@ -4,7 +4,10 @@ module.exports = [{
 			'/status/204': 204, // this will be skipped because we don't support it yet!
 			'/status/404': {
 				status: 404,
-				content: '404'
+				content: '404',
+				responseHeaders: {
+					'X-Powered-By': 'Express'
+				}
 			},
 			'/status/302': 302,
 			'/redirect': '/status/200',
