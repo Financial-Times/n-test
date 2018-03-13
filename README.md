@@ -26,7 +26,6 @@ module.exports = [
     name: 'basic',
     urls: {
       '/': {
-        user: 'premium', // Uses a session token for the specified user type (options: premium/standard/expired)
         status: 200,
         "cssCoverage": {
             '/article/UUID': 20
@@ -86,6 +85,38 @@ module.exports = [
       },
       '/redirect-location': '/eventual-path'
     }
+  }
+]
+```
+
+**Authenticating users**
+
+Add `user` property to a suit and it will set the session tokens for that type of user before running the tests in that suite.  
+
+*Options:* `premium`, `standard`, `expired`.
+
+*Example*
+```json
+[
+  { 
+    user: 'premium',
+    urls: [
+      '/these-will': 200,
+      '/run-with-a': 200,
+      '/premium-user': 200
+    ]
+  }, 
+  {
+    'user': 'standard',
+    'urls': [ 
+      '/this-will-run-with-a-standard-user': 200 
+    ]
+  },
+  {
+    'urls': [
+      '/these-will-run': 403,
+      '/without-session-token': 403
+    ]  
   }
 ]
 ```
