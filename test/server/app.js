@@ -76,6 +76,16 @@ app.get('/network-requests', (req, res) => {
 	`);
 });
 
+app.get('/session/*', require('cookie-parser')(), (req, res) => {
+	const sessionId = req.cookies['FTSession'] || req.cookies['FTSession_s'];
+	let status;
+	if (sessionId) {
+		status = 200;
+	} else {
+		status = 403;
+	}
+	res.status(status).send(`${status}`);
+});
 
 if (!module.parent) {
 	app.listen(process.env.PORT || 3004);

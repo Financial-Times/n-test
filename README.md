@@ -26,6 +26,7 @@ module.exports = [
     name: 'basic',
     urls: {
       '/': {
+        user: 'premium', // Uses a session token for the specified user type (options: premium/standard/expired)
         status: 200,
         "cssCoverage": {
             '/article/UUID': 20

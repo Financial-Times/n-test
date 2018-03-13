@@ -64,4 +64,22 @@ describe('Smoke Tests of the Smoke', () => {
 			});
 		});
 	});
+
+	describe('Session tokens', () => {
+		test('should set session token', () => {
+
+			const smoke = new SmokeTest({
+				host: 'http://localhost:3004',
+				config: 'test/fixtures/smoke-session-token.js'
+			});
+			return smoke.run()
+				.then((results) => {
+					expect(results.passed.length).toEqual(4);
+				})
+				.catch((results) => {
+					// shouldn't fall into this block
+					expect(results.failed).toBeNull();
+				});
+		});
+	});
 });

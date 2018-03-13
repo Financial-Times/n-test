@@ -27,10 +27,12 @@
         "commander": "^2.13.0",
         "directly": "^2.0.6",
         "inquirer": "^5.0.1",
+        "node-fetch": "^2.1.1",
         "puppeteer": "^1.0.0"
     },
     "devDependencies": {
         "@financial-times/n-gage": "^1.19.2",
+        "cookie-parser": "^1.4.3",
         "jest": "^22.0.6",
         "express": "^4.16.2"
     }
