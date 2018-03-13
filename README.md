@@ -89,6 +89,42 @@ module.exports = [
 ]
 ```
 
+**Authenticating users**
+
+Add `user` property to a suit and it will set the session tokens for that type of user before running the tests in that suite.  
+
+*Options:* `premium`, `standard`, `expired`.
+
+*Remarks* 
+
+Needs to set TEST_SESSIONS_URL (url to [`next-test-sessions-lambda`](http://github.com/financial-times/next-test-sessions-lambda)) and TEST_SESSIONS_API_KEY environment variables when running the tests.
+
+*Example*
+```
+[
+  { 
+    user: 'premium',
+    urls: [
+      '/these-will': 200,
+      '/run-with-a': 200,
+      '/premium-user': 200
+    ]
+  }, 
+  {
+    'user': 'standard',
+    'urls': [ 
+      '/this-will-run-with-a-standard-user': 200 
+    ]
+  },
+  {
+    'urls': [
+      '/these-will-run': 403,
+      '/without-session-token': 403
+    ]  
+  }
+]
+```
+
 **Using programatically**
 
 ```
