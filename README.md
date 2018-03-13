@@ -95,8 +95,12 @@ Add `user` property to a suit and it will set the session tokens for that type o
 
 *Options:* `premium`, `standard`, `expired`.
 
+*Remarks* 
+
+Needs to set TEST_SESSIONS_URL (url to [`next-test-sessions-lambda`](http://github.com/financial-times/next-test-sessions-lambda)) and TEST_SESSIONS_API_KEY environment variables when running the tests.
+
 *Example*
-```json
+```
 [
   { 
     user: 'premium',
