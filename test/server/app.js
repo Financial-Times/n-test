@@ -77,7 +77,7 @@ app.get('/network-requests', (req, res) => {
 });
 
 app.get('/session/*', require('cookie-parser')(), (req, res) => {
-	const sessionId = req.cookies['FTSession'] || req.cookies['FTSession_s'];
+	const sessionId = req.cookies['FTSession'] && req.cookies['FTSession_s'];
 	let status;
 	if (sessionId) {
 		status = 200;
