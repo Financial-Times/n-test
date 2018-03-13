@@ -10,7 +10,7 @@ module.exports = (program) => {
 	program
 		.command('smoke [sets...]')
 		.option('-a, --auth', 'Authenticate with FT_NEXT_BACKEND_KEY')
-		.option('-b, --browsers', 'Selenium browsers to run the test against')
+		.option('-b, --browsers [value]', 'Selenium browsers to run the test against')
 		.option('-H, --host [value]', 'Set the hostname to use for all tests')
 		.option('-c, --config [value]', 'Set the path to the global config file. Defaults to .n-test.js')
 		.option('-t, --testFile [value]', 'Path to config file used to test. Defaults to ./test/smoke.json')
