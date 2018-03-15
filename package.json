@@ -23,11 +23,11 @@
     },
     "homepage": "https://github.com/Financial-Times/n-test#readme",
     "dependencies": {
+        "@financial-times/n-test-sessions-client": "^1.0.0-beta.1",
         "chalk": "^2.3.0",
         "commander": "^2.13.0",
         "directly": "^2.0.6",
         "inquirer": "^5.0.1",
-        "node-fetch": "^2.1.1",
         "puppeteer": "^1.0.0"
     },
     "devDependencies": {
