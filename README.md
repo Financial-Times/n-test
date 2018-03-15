@@ -1,97 +1,156 @@
-# n-test
-A CLI tool and module for testing web applications, designed for FT.com.
+# n-test 
+Runs smoke tests with Puppeteer (and optionally Saucelabs). Define a set of URLs and expected behaviour in JSON, without the toil of writing full blown tests.
 
-## Tasks
+[![CircleCI](https://circleci.com/gh/Financial-Times/n-test.svg?style=svg&circle-token=d042713e08cb5920c4c2b462e63867d4906a7a66)](https://circleci.com/gh/Financial-Times/n-test)
+[![Node.js version support][shield-node]](#)
+[![Dependencies][shield-dependencies]](#)
 
-### Smoke tests
+[shield-github]: (https://img.shields.io/github/tag/Financial-Times/n-test.svg
+[shield-dependencies]: https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg
+[shield-node]: https://img.shields.io/badge/node.js%20support->=8.0.0-brightgreen.svg
 
-FT.com is built up of dozens of microservices, that are deployed dozens of times a day. Running full browser or integration tests for each of these results in both slower development and build time.
 
-Smoke tests are designed to be a quick sanity check against a set of endpoints to check that they are actually working, rendering the elements that you expect and haven't introduced any performance regressions.
+```
+n-test smoke
+n-test smoke --config path/to/config.js --host http://local.ft.com:3002 --header "X-Api-Key: 1234"
+n-test smoke basic
+n-test smoke -i
 
-Rather than the chore of writing tests, simply add some JS config (default location - tests/smoke.js) with some URLs (and optional headers) and some expectations.
+n-test open
+n-test open headers --breakpoint M --config path/to/config.js --host https://local.ft.com:3002
+```
 
-`n-test smoke`
+Table of Contents
+-----------------
+  * [Requirements](#requirements)
+  * [Usage](#usage)
+	  * [Expectations](#expectations)
+	  * [Request types](#request-types)
+	  * [FT User Sessions](#ft-user-sessions)
+	  * [Using Programatically](#using-programatically)
+	  * [Cross Browser Testing](#cross-browser-testing-experimental)
+  * [Contributing](#contributing)
+  
 
-`n-test smoke --config path/to/config.js --host https://local.ft.com:3002 --header "X-Api-Key: 1234"`
+Requirements
+------------
 
-`n-test smoke basic` - runs just the set with the name 'basic'
+n-test requires the following to run:
+* [Node.js][node] v8.0.0+
+* [npm][npm] (normally comes with Node.js)
 
-`n-test smoke -i` - interactively select the suites to run
 
-*Example config*
+Usage
+-----
+
+n-test is easiest to use as a command line tool, installed by npm.
+
+`npm install @financial-times/n-test`
+
+You must create a _config file_ containing the set of URLs to test. This will be a javascript file, that exports an array of test suites. The default location is `test/smoke.js`. This can be overriden with a command line parameter.
+
 ```
 module.exports = [
-  {
-    name: 'basic',
-    urls: {
-      '/': {
-        status: 200,
-        "cssCoverage": {
-            '/article/UUID': 20
-        },
-        elements: {
-            '.selector': 4,
-            '.other-selector': 'Contains this text',
-	    '.some-of-these': true
-        },
-	responseHeaders: {
-	  'My-Header': 'expected-value'
-	},
-        pageErrors: 0, // NOTE: should probably only use this with ads disabled
-        performance: true //checks firstPaint/firstContentfulPaint against baseline. default = 2000, or can specify.
-        networkRequests: {
-            '/some-third-party.js': 1,
-            'tracking.pixel': 4 //asserts 4 network requests were made to a URL containing 'tracking.pixel'
-	    '/will-have-some-of-these.jpg': true,
-	    'should-not-load-this.js': false
-        }
-        ]
-      },
-      '/some/path': 200,
-      '/post': {
-          body: { "some": "data" },
-          method: 'POST',
-    	  status: 200
-      }
-    }
-  },
-  {
-    name: 'headers',
-    headers: {
-      'some-header': 1
-    }
-    urls: {
-      '/run-with-header': {
-        status: 200,
-        content: (content) => {
-          return content.includes('some-text');
-        }
-      },
-      '/run-with-additional-headers': {
-        headers: { 'some-other-header': 'value' }
-        status: 200
-      }
-    }
-  },
-  {
-    name: 'redirects',
-    urls: {
-      '/redirect-code': {
-        status: 302,
-        content: (eventualContent) => {
-          return eventualContent.includes('some-text');
-        }
-      },
-      '/redirect-location': '/eventual-path'
-    }
-  }
-]
+	{
+		name: 'basic',
+		urls: {
+			'/': 200,
+			'/redirect': '/'
+		}
+	}
+];
+```
+		
+Then, you can run (assuming your application is running on port 8080 - the default is 3002):
+
+`n-test smoke -H http://localhost:8080`
+
+This will run a headless browser, open the URLs and check (in the above case) the response status is 200 for / and '/redirect' redirects to '/'. If both of those things are true, the command will exit with a success status.
+
+You can also run:
+
+`n-test open -H http://localhost:8080`
+
+This allows you to select a suite of URLs (in this case, "basic"), and open them in Chromium. This is useful for manually testing a set of URLs.
+
+### Expectations
+
+Checking response statii is great for checking that your application responds with _something_, but not necessarily the right thing. n-test comes with a bunch of basic things that you check for.
+
+```
+...
+urls: {
+	'/article/1234': {
+		status: 200,
+		elements: {
+			'.this-should-exist-somewhere': true,
+			'.there-should-be-3-of-these': 3,
+			'div[exists=false]': false,
+			'#should-contain-text': 'text'
+		},
+		responseHeaders: {
+			'My-Header': 'expected-value'
+		},
+		pageErrors: 0,
+		networkRequests: {
+			'/some-third-party.js': 1,
+			'tracking.pixel': 4, //asserts 4 network requests were made to a URL containing 'tracking.pixel'
+			'/will-have-some-of-these.jpg': true,
+			'should-not-load-this.js': false
+		},
+		content: (content) => {
+			return content.includes('some-text');
+    },
+		performance: true //checks firstPaint/firstContentfulPaint against baseline. default = 2000, or can specify.
+	}
+}
+...
 ```
 
-**Authenticating users**
+### Request types
 
-Add `user` property to a suit and it will set the session tokens for that type of user before running the tests in that suite.  
+By default, URLs are assumed to be GET requests, but you can also specify request method/headers/bodies.
+
+```
+...
+urls: {
+	'/article/1234': {
+		headers: {
+			'My-Request-Header': 1
+		}
+	},
+	'/post': {
+		body: { "some": "data" },
+		method: 'POST',
+		status: 200,
+		https: true //Force this URL to be requested over HTTPS, even if the host is not
+	}
+}
+...
+```
+
+These can all be set at a suite level, as well as a URL level, like so:
+
+
+```
+...
+{
+	name: 'authenticated-requests',
+	headers: {
+		'api-key': process.env.API_KEY
+	},
+	urls: {
+		'/article/1': 200,
+		'/article/2': 200,
+		'/article/404': 404
+	}
+}
+...
+```
+
+### FT User Sessions
+
+To run a test suite for a type of FT subscriber, add a `user` property to the suite and it will set the session tokens for that type of user before running the tests in that suite.  
 
 *Options:* `premium`, `standard`, `expired`.
 
@@ -125,7 +184,10 @@ Needs to set TEST_SESSIONS_URL (url to [`next-test-sessions-lambda`](http://gith
 ]
 ```
 
-**Using programatically**
+
+### Using Programatically
+
+`n-test` can also be used programatically. This allows you to extend the functionality by adding custom expectations. Below is an example.
 
 ```
 const SmokeTest = require('@financial-times/n-test').SmokeTest;
@@ -149,13 +211,44 @@ smoke.run()
 smoke.run(['basic']);
 ```
 
-#### Open
+### Cross Browser Testing [Experimental]
+You can also run your test suite against Saucelabs (Browserstack coming soon!).
 
-Opens an instance of Chromium with all of the URLs specified in the smoke tests, for manual verification.
+To do this, you must have `SAUCE_USER` and `SAUCE_KEY` environment variables set, and enable cross browser tests on a suite/url basis.
 
-`n-test open` - interactively select which sets of of URLs to open
+```
+{
+	name: 'blah'
+  urls: { 
+		'/only-puppeteer': {
+			status: 200
+		},
+		'/no-element-checks': {
+			status: 200,
+			browsers: true
+		},
+		'/runs-all-browsers': {
+			status: 200,
+			elements: {
+				'.js-success': true
+			},
+			browsers: true //runs against all enabled browsers, default ['chrome', 'firefox', 'safari', 'internet explorer', 'MicrosoftEdge', 'android'];
+		},
+		'/ios-only': {
+			status: 200,
+			elements: {
+				'.app-install-banner': true
+			},
+			browsers: ['ios']
+		},
+	}
+}
+```
 
-`n-test open headers --breakpoint M --config path/to/config.js --host https://local.ft.com:3002`
+The set of enabled browsers to run against can be changed on the command line:
+
+`n-test smoke --browsers "chrome,internet explorer,android"`
+
 
 #### HALPPPPP
 

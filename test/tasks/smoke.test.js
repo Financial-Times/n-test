@@ -65,8 +65,9 @@ describe('Smoke Tests of the Smoke', () => {
 		});
 	});
 
+	//TODO: figure out how to test the www.ft.com bit!
 	describe('Session tokens', () => {
-		test('should set session token', () => {
+		test('should not run user-based tests on localhost', () => {
 
 			const smoke = new SmokeTest({
 				host: 'http://localhost:3004',
@@ -74,12 +75,10 @@ describe('Smoke Tests of the Smoke', () => {
 			});
 			return smoke.run()
 				.then((results) => {
-					expect(results.passed.length).toEqual(4);
-				})
-				.catch((results) => {
-					// shouldn't fall into this block
-					expect(results.failed).toBeNull();
+					expect(results.urlsTested).toEqual(1);
+					expect(results.passed.length).toEqual(1);
 				});
 		});
+
 	});
 });
