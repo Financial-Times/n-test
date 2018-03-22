@@ -28,7 +28,7 @@
         "directly": "^2.0.6",
         "inquirer": "^5.0.1",
         "node-fetch": "^2.1.1",
-        "puppeteer": "^1.0.0",
+        "puppeteer": "^1.2.0",
         "wdio-sauce-service": "^0.4.8",
         "webdriverio": "^4.11.0"
     },
