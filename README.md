@@ -124,6 +124,12 @@ urls: {
 		method: 'POST',
 		status: 200,
 		https: true //Force this URL to be requested over HTTPS, even if the host is not
+	},
+	'/wait-for-load': {
+		waitUntil: 'load' //default = domcontentloaded
+		elements: {
+		  '.loaded-by-js': true
+		}
 	}
 }
 ...

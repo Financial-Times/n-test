@@ -24,6 +24,7 @@ module.exports = [{
 				content: (content) => JSON.parse(content).key === 'value'
 			},
 			'/network-requests': {
+				waitUntil: 'load',
 				networkRequests: {
 					'/status/200': 1,
 					'/status': 2,
