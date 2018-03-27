@@ -35,14 +35,17 @@ module.exports = (program) => {
 
 			const smokeTests = new SmokeTests(opts);
 			smokeTests.run(sets).catch(err => {
-				if(err.failed) {
+				if(err.failed.length) {
 					// eslint-disable-next-line no-console
 					console.error(`${err.failed.length} URLs failed their check.`);
+				} else if(err.errors.length) {
+					// eslint-disable-next-line no-console
+					console.error(`An unacceptable number (${err.errors.length}) tests threw errors`);
 				} else {
 					// eslint-disable-next-line no-console
 					console.error(err);
 				}
-				process.exit(0);
+				process.exit(2);
 			});
 		});
 };

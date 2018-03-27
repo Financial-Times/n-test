@@ -39,6 +39,41 @@ describe('Smoke Tests of the Smoke', () => {
 		});
 	});
 
+	describe('tests that error', () => {
+
+		test('should handle non-assertion errors gracefully beyond a threshold', (done) => {
+			const smoke = new SmokeTest({
+				host: 'http://localhost:3004',
+				config: 'test/fixtures/smoke-error-pass.js'
+			});
+
+			return smoke.run()
+				.then((results) => {
+					expect(results.errors.length).toEqual(2);
+					expect(results.failed.length).toEqual(0);
+					expect(results.passed.length).toEqual(4);
+					done();
+				});
+		});
+
+		test('should fail if more than 2 tests error', (done) => {
+			const smoke = new SmokeTest({
+				host: 'http://localhost:3004',
+				config: 'test/fixtures/smoke-error-fail.js'
+			});
+
+			return smoke.run()
+				.catch((results) => {
+					expect(results.errors.length).toEqual(3);
+					expect(results.failed.length).toEqual(0);
+					done();
+				});
+
+		});
+
+
+	});
+
 	describe('Adding custom checks', () => {
 		test('should allow adding custom assertions',(done) => {
 
