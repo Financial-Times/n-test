@@ -33,6 +33,7 @@ module.exports = [{
 				}
 			},
 			'/coverage/good': {
+				waitUntil: 'load',
 				elements: {
 					'.one': 1,
 					'.two': 1,
@@ -45,6 +46,7 @@ module.exports = [{
 				}
 			},
 			'/coverage/okay': {
+				waitUntil: 'load',
 				elements: {
 					'.one': true,
 					'.three': 0
