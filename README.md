@@ -218,9 +218,10 @@ smoke.run(['basic']);
 ```
 
 ### Cross Browser Testing [Experimental]
-You can also run your test suite against Saucelabs (Browserstack coming soon!).
+You can also run your test suite against Browserstack (or Saucelabs).
 
-To do this, you must have `SAUCE_USER` and `SAUCE_KEY` environment variables set, and enable cross browser tests on a suite/url basis.
+Browserstack: you must have `BROWSERSTACK_USER` and `BROWSERSTACK_KEY` environment variables set, and enable cross browser tests on a suite/url basis.
+Saucelabs: you must have `SAUCE_USER` and `SAUCE_KEY` environment variables set, and enable cross browser tests on a suite/url basis.
 
 ```
 {
