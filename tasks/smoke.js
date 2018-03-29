@@ -1,4 +1,4 @@
-const SmokeTests = require('../lib/smoke');
+const SmokeTests = require('../lib/smoke/smoke-test');
 
 module.exports = (program) => {
 
