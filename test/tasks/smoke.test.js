@@ -1,7 +1,7 @@
 /*globals beforeAll, expect */
 
 const server = require('../server/app');
-const SmokeTest = require('../../lib/smoke');
+const SmokeTest = require('../../lib/smoke/smoke-test');
 
 describe('Smoke Tests of the Smoke', () => {
 
