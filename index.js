@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = {
-	SmokeTest: require('./lib/smoke')
+	SmokeTest: require('./lib/smoke/smoke-test')
 };
