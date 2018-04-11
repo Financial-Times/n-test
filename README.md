@@ -1,4 +1,4 @@
-# n-test 
+# n-test
 Runs smoke tests with Puppeteer (and optionally Saucelabs). Define a set of URLs and expected behaviour in JSON, without the toil of writing full blown tests.
 
 [![CircleCI](https://circleci.com/gh/Financial-Times/n-test.svg?style=svg&circle-token=d042713e08cb5920c4c2b462e63867d4906a7a66)](https://circleci.com/gh/Financial-Times/n-test)
@@ -30,7 +30,7 @@ Table of Contents
 	  * [Using Programatically](#using-programatically)
 	  * [Cross Browser Testing](#cross-browser-testing-experimental)
   * [Contributing](#contributing)
-  
+
 
 Requirements
 ------------
@@ -60,7 +60,7 @@ module.exports = [
 	}
 ];
 ```
-		
+
 Then, you can run (assuming your application is running on port 8080 - the default is 3002):
 
 `n-test smoke -H http://localhost:8080`
@@ -100,7 +100,7 @@ urls: {
 		},
 		content: (content) => {
 			return content.includes('some-text');
-    },
+	},
 		performance: true //checks firstPaint/firstContentfulPaint against baseline. default = 2000, or can specify.
 	}
 }
@@ -156,36 +156,36 @@ These can all be set at a suite level, as well as a URL level, like so:
 
 ### FT User Sessions
 
-To run a test suite for a type of FT subscriber, add a `user` property to the suite and it will set the session tokens for that type of user before running the tests in that suite.  
+To run a test suite for a type of FT subscriber, add a `user` property to the suite and it will set the session tokens for that type of user before running the tests in that suite.
 
 *Options:* `premium`, `standard`, `expired`.
 
-*Remarks* 
+*Remarks*
 
 Needs to set TEST_SESSIONS_URL (url to [`next-test-sessions-lambda`](http://github.com/financial-times/next-test-sessions-lambda)) and TEST_SESSIONS_API_KEY environment variables when running the tests.
 
 *Example*
 ```
 [
-  { 
-    user: 'premium',
-    urls: [
-      '/these-will': 200,
-      '/run-with-a': 200,
-      '/premium-user': 200
-    ]
-  }, 
   {
-    'user': 'standard',
-    'urls': [ 
-      '/this-will-run-with-a-standard-user': 200 
-    ]
+	user: 'premium',
+	urls: [
+	  '/these-will': 200,
+	  '/run-with-a': 200,
+	  '/premium-user': 200
+	]
   },
   {
-    'urls': [
-      '/these-will-run': 403,
-      '/without-session-token': 403
-    ]  
+	'user': 'standard',
+	'urls': [
+	  '/this-will-run-with-a-standard-user': 200
+	]
+  },
+  {
+	'urls': [
+	  '/these-will-run': 403,
+	  '/without-session-token': 403
+	]
   }
 ]
 ```
@@ -201,13 +201,13 @@ const smoke = new SmokeTests({ headers: { globalHeader: true },  host: 'local.ft
 
 //Add custom checks like so:
 smoke.addCheck('custom', async (testPage) => {
-    const metrics = await testPage.page.metrics();
+	const metrics = await testPage.page.metrics();
 
-    return {
-        expected: `no more than ${testPage.check.custom} DOM nodes`,
-        actual: `${metrics.Nodes} nodes`,
-        result: testPage.check.custom >= metrics.Nodes
-    }
+	return {
+		expected: `no more than ${testPage.check.custom} DOM nodes`,
+		actual: `${metrics.Nodes} nodes`,
+		result: testPage.check.custom >= metrics.Nodes
+	}
 });
 
 smoke.run()
@@ -223,10 +223,13 @@ You can also run your test suite against Browserstack (or Saucelabs).
 Browserstack: you must have `BROWSERSTACK_USER` and `BROWSERSTACK_KEY` environment variables set, and enable cross browser tests on a suite/url basis.
 Saucelabs: you must have `SAUCE_USER` and `SAUCE_KEY` environment variables set, and enable cross browser tests on a suite/url basis.
 
+*Note* Browserstack supports running off a local host. If your host is local, it will spin up Browserstack Local and proxy through.
+*Caveat* sometimes browserstack local might not clean up properly after itself!
+
 ```
 {
 	name: 'blah'
-  urls: { 
+	urls: {
 		'/only-puppeteer': {
 			status: 200
 		},
@@ -256,6 +259,31 @@ The set of enabled browsers to run against can be changed on the command line:
 
 `n-test smoke --browsers "chrome,internet explorer,android"`
 
+
+### Cross Browser Screenshotting [Experimental]
+
+There are two ways to get screenshots generated.
+
+1. As part of your smoke test run, you can generate PNG files with every run:
+
+Example:
+```
+{
+	name: 'blah'
+	urls: {
+		'/screenshot-me': {
+			status: 200,
+			screenshot: {
+				path: './tmp/screenshots'
+			}
+		}
+	}
+}
+```
+
+2. A command that takes screenshots on multiple browsers, and opens them in a headless chrome window.
+
+`n-test screenshot --browsers ie9,safari`
 
 #### HALPPPPP
 
