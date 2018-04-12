@@ -36,7 +36,7 @@
     "devDependencies": {
         "@financial-times/n-gage": "^1.19.2",
         "cookie-parser": "^1.4.3",
-        "jest": "^22.0.6",
-        "express": "^4.16.2"
+        "express": "^4.16.2",
+        "jest": "^22.0.6"
     }
 }
