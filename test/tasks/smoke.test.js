@@ -2,6 +2,7 @@
 
 const server = require('../server/app');
 const SmokeTest = require('../../lib/smoke/smoke-test');
+const { spawn } = require('child_process');
 
 describe('Smoke Tests of the Smoke', () => {
 
@@ -115,5 +116,23 @@ describe('Smoke Tests of the Smoke', () => {
 				});
 		});
 
+	});
+
+	describe('CLI task', () => {
+		test('should exit with the correct code for a passing test', (done) => {
+			const proc = spawn('./bin/n-test.js', ['smoke', '--host', 'http://localhost:3004', '--config', 'test/fixtures/smoke-pass.js']);
+			proc.on('close', (code) => {
+				expect(code).toEqual(0);
+				done();
+			});
+		});
+
+		test('should exit with a bad code if the test fails', (done) => {
+			const proc = spawn('./bin/n-test.js', ['smoke', '--host', 'http://localhost:3004', '--config', 'test/fixtures/smoke-fail.js']);
+			proc.on('close', (code) => {
+				expect(code).toEqual(1);
+				done();
+			});
+		});
 	});
 });
