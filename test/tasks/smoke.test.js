@@ -130,7 +130,7 @@ describe('Smoke Tests of the Smoke', () => {
 		test('should exit with a bad code if the test fails', (done) => {
 			const proc = spawn('./bin/n-test.js', ['smoke', '--host', 'http://localhost:3004', '--config', 'test/fixtures/smoke-fail.js']);
 			proc.on('close', (code) => {
-				expect(code).toEqual(2);
+				expect(code).toEqual(1);
 				done();
 			});
 		});

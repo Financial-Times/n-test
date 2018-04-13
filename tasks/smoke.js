@@ -44,7 +44,7 @@ module.exports = (program) => {
 					// eslint-disable-next-line no-console
 					console.error(err);
 				}
-				process.exit(2);
+				process.exit(1);
 			});
 		});
 };
