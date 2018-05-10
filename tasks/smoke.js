@@ -34,10 +34,10 @@ module.exports = (program) => {
 
 			const smokeTests = new SmokeTests(opts);
 			smokeTests.run(sets).catch(err => {
-				if(err.failed.length) {
+				if(err.failed && err.failed.length) {
 					// eslint-disable-next-line no-console
 					console.error(`${err.failed.length} URLs failed their check.`);
-				} else if(err.errors.length) {
+				} else if(err.errors && err.errors.length) {
 					// eslint-disable-next-line no-console
 					console.error(`An unacceptable number (${err.errors.length}) tests threw errors`);
 				} else {
