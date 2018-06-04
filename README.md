@@ -88,6 +88,10 @@ urls: {
 			'div[exists=false]': false,
 			'#should-contain-text': 'text'
 		},
+		elementShifts: {
+			'.this-should-not-move': 0,
+			'.this-can-move-up-to-3-times': 3
+		},
 		responseHeaders: {
 			'My-Header': 'expected-value'
 		},

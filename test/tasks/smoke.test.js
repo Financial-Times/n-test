@@ -19,11 +19,11 @@ describe('Smoke Tests of the Smoke', () => {
 			});
 			return smoke.run()
 			.then((results) => {
-				expect(results.passed.length).toEqual(11);
+				expect(results.passed.length).toEqual(12);
 				expect(results.failed.length).toEqual(0);
 				done();
 			});
-		});
+		}, 10000);
 
 		test('tests should fail if some tests fail', (done) => {
 
@@ -34,10 +34,10 @@ describe('Smoke Tests of the Smoke', () => {
 			return smoke.run()
 			.catch((results) => {
 				expect(results.passed.length).toEqual(1);
-				expect(results.failed.length).toEqual(3);
+				expect(results.failed.length).toEqual(4);
 				done();
 			});
-		});
+		}, 10000);
 	});
 
 	describe('tests that error', () => {
@@ -125,7 +125,7 @@ describe('Smoke Tests of the Smoke', () => {
 				expect(code).toEqual(0);
 				done();
 			});
-		});
+		}, 10000);
 
 		test('should exit with a bad code if the test fails', (done) => {
 			const proc = spawn('./bin/n-test.js', ['smoke', '--host', 'http://localhost:3004', '--config', 'test/fixtures/smoke-fail.js']);
@@ -133,6 +133,6 @@ describe('Smoke Tests of the Smoke', () => {
 				expect(code).toEqual(1);
 				done();
 			});
-		});
+		}, 10000);
 	});
 });

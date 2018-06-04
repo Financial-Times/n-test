@@ -13,6 +13,11 @@ module.exports = [{
 				cssCoverage: {
 					'coverage/okay': 60
 				}
+			},
+			'/jank': {
+				elementShifts: {
+					'.content': 0
+				}
 			}
 		}
 	}

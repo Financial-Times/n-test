@@ -87,6 +87,55 @@ app.get('/session/*', require('cookie-parser')(), (req, res) => {
 	res.status(status).send(`${status}`);
 });
 
+app.get('/jank', (req, res) => {
+	res.send(`
+		<body>
+			<style>
+				.header {
+					height: 200px;
+				}
+				.content {
+					height: 100px;
+				}
+			</style>
+			<div class="ad"></div>
+			<div class="header">Header</div>
+			<div class="content">Content</div>
+			<script async defer>
+				setTimeout(() => {
+					document.querySelector('.ad').style.height = '300px';
+				}, 1000);
+			</script>
+		</body>
+	`);
+});
+
+app.get('/no-jank', (req, res) => {
+	res.send(`
+		<body>
+			<style>
+				.ad {
+					min-height: 300px;
+				}
+				.header {
+					height: 200px;
+				}
+				.content {
+					height: 100px;
+				}
+			</style>
+			<div class="ad"></div>
+			<div class="header">Header</div>
+			<div class="content">Content</div>
+			<script async defer>
+				setTimeout(() => {
+					document.querySelector('.ad').style.height = '300px';
+				}, 1000);
+			</script>
+		</body>
+	`);
+});
+
 if (!module.parent) {
 	app.listen(process.env.PORT || 3004);
 } else {
