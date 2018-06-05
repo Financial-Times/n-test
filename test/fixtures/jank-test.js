@@ -1,9 +1,11 @@
 module.exports = [{
-    urls: {
-        '/no-jank': {
-            elementShifts: {
-                '.content': 0
-            }
-        }
+	urls: {
+		'/no-jank': {
+			elementShifts: {
+				'.content': {
+					maxCount: 0
+				}
+			}
+		}
 }
 }];

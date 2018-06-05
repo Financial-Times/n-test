@@ -16,7 +16,9 @@ module.exports = [{
 			},
 			'/jank': {
 				elementShifts: {
-					'.content': 0
+					'.content': {
+						maxCount: 0
+					}
 				}
 			}
 		}

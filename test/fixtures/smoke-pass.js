@@ -57,7 +57,10 @@ module.exports = [{
 			},
 			'/no-jank': {
 				elementShifts: {
-					'.content': 0
+					'.content': {
+						maxCount: 0,
+						maxPixels: 0
+					}
 				}
 			}
 	}
