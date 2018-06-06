@@ -91,7 +91,7 @@ urls: {
 		elementShifts: {
 			'.this-should-not-move': { maxCount: 0 },
 			'.this-can-move-up-to-3-times': { maxCount: 0 },
-			'.this-can-only-move-up-to-100-px': { maxPixels: 100 s}
+			'.this-can-only-move-up-to-100-px': { maxPixels: 100 }
 		},
 		responseHeaders: {
 			'My-Header': 'expected-value'
