@@ -54,7 +54,14 @@ module.exports = [{
 				cssCoverage: {
 					'coverage/okay': 50
 				}
+			},
+			'/no-jank': {
+				elementShifts: {
+					'.content': {
+						maxCount: 0,
+						maxPixels: 0
+					}
+				}
 			}
-
 	}
 }];
