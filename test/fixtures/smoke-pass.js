@@ -62,6 +62,14 @@ module.exports = [{
 						maxPixels: 0
 					}
 				}
+			},
+			'/actions': {
+				actions: [
+					'click element .my-button'
+				],
+				elements: {
+					'.content': true
+				}
 			}
 	}
 }];
