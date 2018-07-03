@@ -62,7 +62,6 @@ jobs:
   build:
     <<: *container_config_node8
     steps:
-      - run: echo "${FT_NIGHTLY_BUILD}"
       - checkout
       - run:
           name: Checkout next-ci-shared-helpers
@@ -94,7 +93,6 @@ jobs:
     <<: *container_config_node8
     steps:
       - *attach_workspace
-      - run: echo "${FT_NIGHTLY_BUILD}"
       - run:
           name: Run tests
           command: make test
@@ -150,7 +148,7 @@ workflows:
   nightly:
     triggers:
       - schedule:
-          cron: "15 11 * * *"
+          cron: "0 0 * * *"
           filters:
             <<: *filters_only_master
     jobs:
