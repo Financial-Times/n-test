@@ -4,8 +4,10 @@ node_modules/@financial-times/n-gage/index.mk:
 
 -include node_modules/@financial-times/n-gage/index.mk
 
+# The reason for passing --runInBand to jest in CI:
+# https://facebook.github.io/jest/docs/en/troubleshooting.html#tests-are-extremely-slow-on-docker-and-or-continuous-integration-ci-server
 test:
 	export TEST_SESSIONS_URL=https://fuhn0pye67.execute-api.eu-west-1.amazonaws.com/prod; \
 	export TEST_SESSIONS_API_KEY=mock-api-key; \
-	jest test/tasks/*.js --forceExit
+	jest test/tasks/*.js --forceExit $(if $(CI), --ci --runInBand --testResultsProcessor="jest-junit", )
 	make verify

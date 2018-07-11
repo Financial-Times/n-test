@@ -37,6 +37,7 @@
         "@financial-times/n-gage": "^2.0.1",
         "cookie-parser": "^1.4.3",
         "express": "^4.16.2",
-        "jest": "^22.0.6"
+        "jest": "^22.0.6",
+        "jest-junit": "^5.1.0"
     }
 }
