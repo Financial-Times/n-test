@@ -12,10 +12,10 @@ module.exports = (program) => {
 		.option('-a, --auth', 'Authenticate with FT_NEXT_BACKEND_KEY')
 		.option('-b, --browsers [value]', 'Selenium browsers to run the test against')
 		.option('-H, --host [value]', 'Set the hostname to use for all tests')
-		.option('-c, --config [value]', 'Path to config file used to test. Defaults to ./test/smoke.json')
+		.option('-c, --config [value]', 'Path to config file used to test. Defaults to ./test/smoke.js')
 		.option('-i, --interactive [value]', 'Interactively choose which tests to run. Defaults to false')
 		.option('--header [value]', 'Request headers to be sent with every request. e.g. "X-Api-Key: 1234"', collectHeaders, [])
-		.description('Tests that a given set of urls for an app respond as expected. Expects the config file ./test/smoke.json to exist')
+		.description('Tests that a given set of urls for an app respond as expected. Expects the config file ./test/smoke.js to exist')
 		.action((sets, opts) => {
 			const globalHeaders = {};
 			opts.header.forEach(header => {
