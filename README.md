@@ -296,3 +296,5 @@ Example:
 #### HALPPPPP
 
 Call upon `n-test HALP` to get you through the tough times.
+
+If a test is failing because a subscription has expired, e.g. the premium subscription on nextpremium@ftqa.org has expired, email customer support to renew it.
