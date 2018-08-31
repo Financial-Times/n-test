@@ -73,6 +73,8 @@ You can also run:
 
 This allows you to select a suite of URLs (in this case, "basic"), and open them in Chromium. This is useful for manually testing a set of URLs.
 
+If, when running locally, you are seeing errors about certificates not being valid, set NODE_ENV to be 'development' e.g. `NODE_ENV=development;n-test smoke -H http://localhost:8080`. This will use some launch options that ignore certificate errors.
+
 ### Expectations
 
 Checking response statii is great for checking that your application responds with _something_, but not necessarily the right thing. n-test comes with a bunch of basic things that you check for.
