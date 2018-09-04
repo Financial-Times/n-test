@@ -1,3 +1,5 @@
+const assert = require('assert');
+
 module.exports = [{
 		urls: {
 			'/status/503': 200,
@@ -19,6 +21,11 @@ module.exports = [{
 					'.content': {
 						maxCount: 0
 					}
+				}
+			},
+			'/json': {
+				content: (body) => {
+					assert.equal(body.key, 'wrong-value');
 				}
 			}
 		}
