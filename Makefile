@@ -9,6 +9,6 @@ node_modules/@financial-times/n-gage/index.mk:
 unit-test:
 	export TEST_SESSIONS_URL=https://fuhn0pye67.execute-api.eu-west-1.amazonaws.com/prod; \
 	export TEST_SESSIONS_API_KEY=mock-api-key; \
-	jest test/tasks/*.js --forceExit $(if $(CI), --ci --runInBand --testResultsProcessor="jest-junit", )
+	jest test/tasks/*.js --testURL="http://localhost/" --forceExit $(if $(CI), --ci --runInBand --testResultsProcessor="jest-junit", )
 
 test: verify unit-test
