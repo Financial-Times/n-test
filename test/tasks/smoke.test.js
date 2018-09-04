@@ -23,6 +23,7 @@ describe('Smoke Tests of the Smoke', () => {
 			.then((results) => {
 				expect(results.passed.length).toEqual(13);
 				expect(results.failed.length).toEqual(0);
+				expect(results.errors.length).toEqual(0);
 				done();
 			});
 		}, 10000);
@@ -36,7 +37,8 @@ describe('Smoke Tests of the Smoke', () => {
 			return smoke.run()
 			.catch((results) => {
 				expect(results.passed.length).toEqual(1);
-				expect(results.failed.length).toEqual(4);
+				expect(results.failed.length).toEqual(5);
+				expect(results.errors.length).toEqual(0);
 				done();
 			});
 		}, 10000);
