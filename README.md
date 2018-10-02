@@ -1,5 +1,5 @@
 # n-test
-Runs smoke tests with Puppeteer (and optionally Saucelabs). Define a set of URLs and expected behaviour in JSON, without the toil of writing full blown tests.
+Runs smoke tests with Puppeteer (and optionally Browserstack). Define a set of URLs and expected behaviour in JSON, without the toil of writing full blown tests.
 
 [![CircleCI](https://circleci.com/gh/Financial-Times/n-test.svg?style=svg&circle-token=d042713e08cb5920c4c2b462e63867d4906a7a66)](https://circleci.com/gh/Financial-Times/n-test)
 [![Node.js version support][shield-node]](#)
@@ -228,10 +228,9 @@ smoke.run(['basic']);
 ```
 
 ### Cross Browser Testing [Experimental]
-You can also run your test suite against Browserstack (or Saucelabs).
+You can also run your test suite against Browserstack .
 
 Browserstack: you must have `BROWSERSTACK_USER` and `BROWSERSTACK_KEY` environment variables set, and enable cross browser tests on a suite/url basis.
-Saucelabs: you must have `SAUCE_USER` and `SAUCE_KEY` environment variables set, and enable cross browser tests on a suite/url basis.
 
 *Note* Browserstack supports running off a local host. If your host is local, it will spin up Browserstack Local and proxy through.
 *Caveat* sometimes browserstack local might not clean up properly after itself!
