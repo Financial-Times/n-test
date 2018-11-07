@@ -2,7 +2,6 @@ module.exports = [{
 		urls: {
 			'/status/200': 200,
 			'/status/204': 204, // this will be skipped because we don't support it yet!
-			'/status/304': 200, // browsers will sometimes 304, so let's pretend like that is okay
 			'/status/404': {
 				status: 404,
 				content: '404',
