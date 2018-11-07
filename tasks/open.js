@@ -9,7 +9,6 @@ module.exports = (program) => {
 
 	program
 		.command('open [sets...]')
-		.option('-a, --auth', 'Authenticate with FT_NEXT_BACKEND_KEY')
 		.option('-b, --breakpoint [value]', 'o-grid breakpoint to set viewport to')
 		.option('-c, --config [value]', 'Path to config file used to test. Defaults to ./test/smoke.js')
 		.option('-H, --host [value]', 'Set the hostname to use for all tests')
