@@ -29,7 +29,7 @@
         "directly": "^2.0.6",
         "inquirer": "^5.0.1",
         "node-fetch": "^2.1.1",
-        "puppeteer": "^1.9.0",
+        "puppeteer": "1.7.0",
         "webdriverio": "^4.11.0"
     },
     "devDependencies": {
