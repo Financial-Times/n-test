@@ -107,7 +107,11 @@ urls: {
 		},
 		content: (content) => {
 			return content.includes('some-text');
-	},
+		},
+		visibleContent: {
+		  contentSelector: '.headline, .image, .standfirst'
+		  threshold: 30 // % of viewport that should be visible content
+		},
 		performance: true //checks firstPaint/firstContentfulPaint against baseline. default = 2000, or can specify.
 	}
 }
