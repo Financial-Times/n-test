@@ -9,7 +9,6 @@ module.exports = (program) => {
 
 	program
 		.command('screenshot [sets...]')
-		.option('-a, --auth', 'Authenticate with FT_NEXT_BACKEND_KEY')
 		.option('-b, --browsers [value]', 'Selenium browsers to run the test against')
 		.option('-B, --breakpoint [value]', 'o-grid breakpoint to set viewport to')
 		.option('-c, --config [value]', 'Path to config file used to test. Defaults to ./test/smoke.js')
