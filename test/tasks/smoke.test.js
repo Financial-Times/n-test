@@ -47,22 +47,7 @@ describe('Smoke Tests of the Smoke', () => {
 
 	describe('Tests that error', () => {
 
-		test('should handle non-assertion errors gracefully beyond a threshold', (done) => {
-			const smoke = new SmokeTest({
-				host: 'http://localhost:3004',
-				config: 'test/fixtures/smoke-error-pass.js'
-			});
-
-			return smoke.run()
-				.then((results) => {
-					expect(results.errors.length).toEqual(2);
-					expect(results.failed.length).toEqual(0);
-					expect(results.passed.length).toEqual(2);
-					done();
-				});
-		});
-
-		test('should fail if more than 2 tests error', (done) => {
+		test('should fail if any tests error', (done) => {
 			const smoke = new SmokeTest({
 				host: 'http://localhost:3004',
 				config: 'test/fixtures/smoke-error-fail.js'
