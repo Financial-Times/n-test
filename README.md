@@ -3,10 +3,8 @@ Runs smoke tests with Puppeteer (and optionally Browserstack). Define a set of U
 
 [![CircleCI](https://circleci.com/gh/Financial-Times/n-test.svg?style=svg&circle-token=d042713e08cb5920c4c2b462e63867d4906a7a66)](https://circleci.com/gh/Financial-Times/n-test)
 [![Node.js version support][shield-node]](#)
-[![Dependencies][shield-dependencies]](#)
 
 [shield-github]: (https://img.shields.io/github/tag/Financial-Times/n-test.svg
-[shield-dependencies]: https://img.shields.io/badge/dependencies-up%20to%20date-brightgreen.svg
 [shield-node]: https://img.shields.io/badge/node.js%20support->=8.0.0-brightgreen.svg
 
 
