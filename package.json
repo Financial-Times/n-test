@@ -33,7 +33,7 @@
         "webdriverio": "^4.11.0"
     },
     "devDependencies": {
-        "@financial-times/n-gage": "^2.0.1",
+        "@financial-times/n-gage": "^3.0.0",
         "cookie-parser": "^1.4.3",
         "express": "^4.16.2",
         "jest": "^22.0.6",
