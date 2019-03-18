@@ -1,42 +1,42 @@
 {
-    "name": "@financial-times/n-test",
-    "version": "0.0.0",
-    "description": "A node module containing a collection of test tasks and utilities for Next applications",
-    "main": "index.js",
-    "bin": {
-        "n-test": "./bin/n-test.js"
-    },
-    "scripts": {
-        "test": "make test",
-        "precommit": "node_modules/.bin/secret-squirrel",
-        "commitmsg": "node_modules/.bin/secret-squirrel-commitmsg",
-        "prepush": "make verify -j3"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/Financial-Times/n-test.git"
-    },
-    "author": "",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/Financial-Times/n-test/issues"
-    },
-    "homepage": "https://github.com/Financial-Times/n-test#readme",
-    "dependencies": {
-        "chalk": "^2.3.0",
-        "commander": "^2.13.0",
-        "directly": "^2.0.6",
-        "get-pixels": "^3.3.2",
-        "inquirer": "^5.0.1",
-        "node-fetch": "^2.1.1",
-        "puppeteer": "1.9.0",
-        "webdriverio": "^4.11.0"
-    },
-    "devDependencies": {
-        "@financial-times/n-gage": "^2.0.1",
-        "cookie-parser": "^1.4.3",
-        "express": "^4.16.2",
-        "jest": "^22.0.6",
-        "jest-junit": "^5.1.0"
-    }
+  "name": "@financial-times/n-test",
+  "version": "0.0.0",
+  "description": "A node module containing a collection of test tasks and utilities for Next applications",
+  "main": "index.js",
+  "bin": {
+    "n-test": "./bin/n-test.js"
+  },
+  "scripts": {
+    "test": "make test",
+    "precommit": "node_modules/.bin/secret-squirrel",
+    "commitmsg": "node_modules/.bin/secret-squirrel-commitmsg",
+    "prepush": "make verify -j3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Financial-Times/n-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Financial-Times/n-test/issues"
+  },
+  "homepage": "https://github.com/Financial-Times/n-test#readme",
+  "dependencies": {
+    "chalk": "^2.3.0",
+    "commander": "^2.13.0",
+    "directly": "^2.0.6",
+    "get-pixels": "^3.3.2",
+    "inquirer": "^5.0.1",
+    "node-fetch": "^2.1.1",
+    "puppeteer": "1.9.0",
+    "webdriverio": "^4.11.0"
+  },
+  "devDependencies": {
+    "@financial-times/n-gage": "3.4.0",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.2",
+    "jest": "^22.0.6",
+    "jest-junit": "^5.1.0"
+  }
 }
