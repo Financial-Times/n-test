@@ -10,7 +10,8 @@
     "test": "make test",
     "precommit": "node_modules/.bin/secret-squirrel",
     "commitmsg": "node_modules/.bin/secret-squirrel-commitmsg",
-    "prepush": "make verify -j3"
+    "prepush": "make verify -j3",
+    "prepare": "npx snyk protect || npx snyk protect -d || true"
   },
   "repository": {
     "type": "git",
@@ -37,6 +38,7 @@
     "cookie-parser": "^1.4.3",
     "express": "^4.16.2",
     "jest": "^22.0.6",
-    "jest-junit": "^5.1.0"
+    "jest-junit": "^5.1.0",
+    "snyk": "^1.168.0"
   }
 }
