@@ -31,7 +31,7 @@
     "inquirer": "^5.0.1",
     "node-fetch": "^2.1.1",
     "puppeteer": "^1.18.1",
-    "webdriverio": "^4.11.0"
+    "webdriverio": "^5.0.0"
   },
   "devDependencies": {
     "@financial-times/n-gage": "^3.6.0",
