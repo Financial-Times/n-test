@@ -1,8 +1,8 @@
 module.exports = [{
-		urls: {
-			'/status/200': {
-				custom: 20
-			}
+	urls: {
+		'/status/200': {
+			custom: 20
 		}
 	}
+}
 ];

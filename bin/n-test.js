@@ -19,13 +19,13 @@ program
 	.description('')
 	.action(function (app) {
 
-			if(app && app.toUpperCase().startsWith('HALP')) {
-				halp();
-			} else {
-				// eslint-disable-next-line no-console
-				console.error(`The command ${app} is not known`);
-				process.exit(1);
-			}
+		if(app && app.toUpperCase().startsWith('HALP')) {
+			halp();
+		} else {
+			// eslint-disable-next-line no-console
+			console.error(`The command ${app} is not known`);
+			process.exit(1);
+		}
 	});
 
 
