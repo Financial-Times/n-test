@@ -72,8 +72,15 @@ app.get('/network-requests', (req, res) => {
 		<body>
 			<img src="/status/200" />
 			<img src="/status/302" />
+			<script>
+				window.fetch('/response-body');
+			</script>
 		</body>
 	`);
+});
+
+app.get('/response-body', (req, res) => {
+	res.json({ ab: 'example response body' });
 });
 
 app.get('/session/*', require('cookie-parser')(), (req, res) => {

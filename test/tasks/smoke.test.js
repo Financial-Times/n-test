@@ -26,7 +26,7 @@ describe('Smoke Tests of the Smoke', () => {
 					expect(results.errors.length).toEqual(0);
 					done();
 				});
-		}, 10000);
+		}, 100000);
 
 		test('tests should fail if some tests fail', (done) => {
 

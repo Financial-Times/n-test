@@ -23,12 +23,15 @@ module.exports = [{
 			content: (content) => JSON.parse(content).key === 'value'
 		},
 		'/network-requests': {
-			waitUntil: 'load',
+			waitUntil: 'networkidle2',
 			networkRequests: {
 				'/status/200': 1,
 				'/status': 2,
 				'/status/2': true,
-				'/json': false
+				'/json': false,
+				'/response-body': {
+					ab: 'example response body'
+				}
 			}
 		},
 		'/coverage/good': {
