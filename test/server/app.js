@@ -80,7 +80,12 @@ app.get('/network-requests', (req, res) => {
 });
 
 app.get('/response-body', (req, res) => {
-	res.json({ ab: 'example response body' });
+	res.json({
+		context: {
+			ab: 'example response body'
+		},
+		key: 'value'
+	});
 });
 
 app.get('/session/*', require('cookie-parser')(), (req, res) => {

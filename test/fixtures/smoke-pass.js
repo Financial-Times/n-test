@@ -30,7 +30,9 @@ module.exports = [{
 				'/status/2': true,
 				'/json': false,
 				'/response-body': {
-					ab: 'example response body'
+					context: {
+						ab: 'example response body'
+					}
 				}
 			}
 		},
