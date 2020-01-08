@@ -100,7 +100,12 @@ urls: {
 		networkRequests: {
 			'/some-third-party.js': 1,
 			'tracking.pixel': 4, //asserts 4 network requests were made to a URL containing 'tracking.pixel'
-			'/will-have-some-of-these.jpg': true,
+			'/will-have-some-of-these.jpg': true,,
+			'/validates-this-request-response-body': {
+				analytics: {
+					event: "data",
+				}
+			} // asserts that the network request to this URL contains this object as part of the response body
 			'should-not-load-this.js': false
 		},
 		content: (content) => {

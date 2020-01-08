@@ -82,7 +82,8 @@ app.get('/network-requests', (req, res) => {
 app.get('/response-body', (req, res) => {
 	res.json({
 		context: {
-			ab: 'example response body'
+			ab: 'example response body',
+			other: 'other analytics value'
 		},
 		key: 'value'
 	});
