@@ -5,7 +5,7 @@ Runs smoke tests with Puppeteer (and optionally Browserstack). Define a set of U
 [![Node.js version support][shield-node]](#)
 
 [shield-github]: (https://img.shields.io/github/tag/Financial-Times/n-test.svg
-[shield-node]: https://img.shields.io/badge/node.js%20support->=8.0.0-brightgreen.svg
+[shield-node]: https://img.shields.io/badge/node.js%20support->=14.0.0-brightgreen.svg
 
 
 ```
@@ -34,7 +34,7 @@ Requirements
 ------------
 
 n-test requires the following to run:
-* [Node.js][node] v8.0.0+
+* [Node.js][node] Version defined by `engines.node` in `package.json`. Run command `nvm use` to switch your local Node version to the one specified in `.nvmrc`.
 * [npm][npm] (normally comes with Node.js)
 
 
