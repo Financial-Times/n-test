@@ -176,7 +176,7 @@ The test output will display the original URL.
 
 *Running locally:*
 
-Ngrox will need to be installed and running on the test app's port (e.g. `./ngrok http 3002`). Tests will then need to use TEST_URL variable to specify the ngrok URL when starting the service, e.g. `make smoke TEST_URL=your_ngrok_url`. The local `next-router` needs to be running, as it will be used to proxy the test URL.
+Ngrok will need to be installed and running on the test app's port (e.g. `./ngrok http 3002`). Tests will then need to use TEST_URL variable to specify the ngrok URL when starting the service, e.g. `make smoke TEST_URL=your_ngrok_url`. The local `next-router` needs to be running, as it will be used to proxy the test URL.
 
 *Options:* `premium`, `standard`, `expired`.
 
