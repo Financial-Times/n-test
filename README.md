@@ -174,11 +174,34 @@ For the test to get the user session tokens from [`next-test-sessions-lambda`](h
 
 The test output will display the original URL. 
 
+*Options:* `premium`, `standard`, `expired`.
+
 *Running locally:*
 
-Ngrok will need to be installed and running on the test app's port (e.g. `./ngrok http 3002`). Tests will then need to use TEST_URL variable to specify the ngrok URL when starting the service, e.g. `make smoke TEST_URL=your_ngrok_url`. The local `next-router` needs to be running, as it will be used to proxy the test URL.
+Ngrok provides a secure public URL for the local test app and will need to be installed and running on the the app's port. Tests will then use the TEST_URL variable to specify the ngrok URL when starting the service. The local `next-router` needs to be running, as it will be used to proxy the test URL.
 
-*Options:* `premium`, `standard`, `expired`.
+Example steps to run next-article user tests locally:
+
+Run next-article and next-router locally:
+
+```sh
+$ cd ~/next-article
+$ make run
+$ cd ~/next-router
+4 make run
+```
+
+Run ngrok on next-article's local port:
+
+```
+$ ./ngrok http 3002
+```
+
+Run the test against the ngrok address provided (can be either http or https):
+
+```
+make smoke TEST_URL=https://05bd2344ebca.ngrok.io
+```
 
 *Remarks*
 
