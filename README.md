@@ -170,6 +170,14 @@ n-test allows some basic actions (e.g. clicking, interacting with forms). This h
 
 To run a test suite for a type of FT subscriber, add a `user` property to the suite and it will set the session tokens for that type of user before running the tests in that suite.
 
+For the test to get the user session tokens from [`next-test-sessions-lambda`](http://github.com/financial-times/next-test-sessions-lambda), it needs to rewrite the URL being tested to an ft.com host. The orginal URL is set in the `FT-Test-Host` header, which tells `next-router` to proxy the test URL rather than production.
+
+The test ouput will display the original URL. 
+
+*Running locally:*
+
+Ngrox will need to be installed and running on the test app's port (e.g. `./ngrok http 3002`). Tests will then need to use TEST_URL variable to specify the ngrok URL when starting the service, e.g. `make smoke TEST_URL=your_ngrok_url`. The local `next-router` needs to be running, as it will be used to proxy the test URL.
+
 *Options:* `premium`, `standard`, `expired`.
 
 *Remarks*
