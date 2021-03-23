@@ -172,7 +172,7 @@ To run a test suite for a type of FT subscriber, add a `user` property to the su
 
 For the test to get the user session tokens from [`next-test-sessions-lambda`](http://github.com/financial-times/next-test-sessions-lambda), it needs to rewrite the URL being tested to an ft.com host. The original URL is set in the `FT-Test-Host` header, which tells `next-router` to proxy the test URL rather than production.
 
-The test ouput will display the original URL. 
+The test output will display the original URL. 
 
 *Running locally:*
 
