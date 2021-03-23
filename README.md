@@ -170,7 +170,7 @@ n-test allows some basic actions (e.g. clicking, interacting with forms). This h
 
 To run a test suite for a type of FT subscriber, add a `user` property to the suite and it will set the session tokens for that type of user before running the tests in that suite.
 
-For the test to get the user session tokens from [`next-test-sessions-lambda`](http://github.com/financial-times/next-test-sessions-lambda), it needs to rewrite the URL being tested to an ft.com host. The orginal URL is set in the `FT-Test-Host` header, which tells `next-router` to proxy the test URL rather than production.
+For the test to get the user session tokens from [`next-test-sessions-lambda`](http://github.com/financial-times/next-test-sessions-lambda), it needs to rewrite the URL being tested to an ft.com host. The original URL is set in the `FT-Test-Host` header, which tells `next-router` to proxy the test URL rather than production.
 
 The test ouput will display the original URL. 
 
