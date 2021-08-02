@@ -8,9 +8,6 @@
   },
   "scripts": {
     "test": "make test",
-    "precommit": "node_modules/.bin/secret-squirrel",
-    "commitmsg": "node_modules/.bin/secret-squirrel-commitmsg",
-    "prepush": "make verify -j3",
     "prepare": "npx snyk protect || npx snyk protect -d || true"
   },
   "repository": {
@@ -34,7 +31,7 @@
     "webdriverio": "^5.0.0"
   },
   "devDependencies": {
-    "@financial-times/n-gage": "^3.6.0",
+    "@financial-times/n-gage": "^8.3.2",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.2",
     "jest": "^22.0.6",
@@ -43,5 +40,12 @@
   },
   "engines": {
     "node": "12.x"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "node_modules/.bin/secret-squirrel-commitmsg",
+      "pre-commit": "node_modules/.bin/secret-squirrel",
+      "pre-push": "make verify -j3"
+    }
   }
 }
