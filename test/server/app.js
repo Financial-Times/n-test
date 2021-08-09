@@ -6,6 +6,24 @@ app.get('/status/:status', (req, res) => {
 	res.status(req.params.status).send(req.params.status);
 });
 
+app.get('/status/html/:status', (req, res) => {
+	res
+		.status(req.params.status)
+		.set('Content-Type', 'text/html')
+		.send(`
+			<!DOCTYPE html>
+			<html lang="en">
+				<head>
+				<meta charset="utf-8">
+				<title>Status ${req.params.status}</title>
+				</head>
+				<body>
+					<h1>Status is ${req.params.status}</h1>
+				</body>
+			</html>
+		`);
+});
+
 app.get('/coverage/good', (req, res) => {
 	res.send(`
 		<body>
