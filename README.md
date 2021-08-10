@@ -54,7 +54,8 @@ module.exports = [
 		urls: {
 			'/': 200,
 			'/redirect': '/'
-		}
+		},
+		description: 'Test suite descriptions are optional',
 	}
 ];
 ```
@@ -110,7 +111,8 @@ urls: {
 		  contentSelector: '.headline, .image, .standfirst'
 		  threshold: 30 // % of viewport that should be visible content
 		},
-		performance: true //checks firstPaint/firstContentfulPaint against baseline. default = 2000, or can specify.
+		performance: true, //checks firstPaint/firstContentfulPaint against baseline. default = 2000, or can specify.
+		description: 'Each test may have an optional description. It will display when the test result is reported',
 	}
 }
 ...

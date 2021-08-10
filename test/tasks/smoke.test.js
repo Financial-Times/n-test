@@ -37,7 +37,7 @@ describe('Smoke Tests of the Smoke', () => {
 			return smoke.run()
 				.catch((results) => {
 					expect(results.passed.length).toEqual(1);
-					expect(results.failed.length).toEqual(5);
+					expect(results.failed.length).toEqual(7);
 					expect(results.errors.length).toEqual(0);
 					done();
 				});
