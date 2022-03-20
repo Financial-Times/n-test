@@ -36,7 +36,7 @@
     "check-engine": "^1.10.1",
     "cookie-parser": "^1.4.3",
     "express": "^4.16.2",
-    "jest": "^22.0.6",
+    "jest": "^24.0.0",
     "jest-junit": "^5.1.0",
     "snyk": "^1.168.0"
   },
