@@ -102,9 +102,6 @@ jobs:
     steps:
       - *attach_workspace
       - run:
-          name: check puppeteer
-          command: make check
-      - run:
           name: Run tests
           command: make test
           environment:
