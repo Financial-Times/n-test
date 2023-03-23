@@ -12,6 +12,3 @@ unit-test:
 	jest test/tasks/*.js --testURL="http://localhost/" --forceExit $(if $(CI), --ci --runInBand --testResultsProcessor="jest-junit", )
 
 test: verify unit-test
-
-check:
-	ls -l ~/.cache/puppeteer && ls -l node_modules | grep puppeteer
