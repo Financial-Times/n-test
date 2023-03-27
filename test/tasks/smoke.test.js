@@ -19,7 +19,7 @@ describe('Smoke Tests of the Smoke', () => {
 				host: 'http://localhost:3004',
 				config: 'test/fixtures/smoke-pass.js'
 			});
-			return smoke.run()
+			smoke.run()
 				.then((results) => {
 					expect(results.passed.length).toEqual(12);
 					expect(results.failed.length).toEqual(0);
@@ -34,7 +34,7 @@ describe('Smoke Tests of the Smoke', () => {
 				host: 'http://localhost:3004',
 				config: 'test/fixtures/smoke-fail.js'
 			});
-			return smoke.run()
+			smoke.run()
 				.catch((results) => {
 					expect(results.passed.length).toEqual(1);
 					expect(results.failed.length).toEqual(7);
@@ -53,7 +53,7 @@ describe('Smoke Tests of the Smoke', () => {
 				config: 'test/fixtures/smoke-error-fail.js'
 			});
 
-			return smoke.run()
+			smoke.run()
 				.catch((results) => {
 					expect(results.errors.length).toEqual(3);
 					expect(results.failed.length).toEqual(0);
@@ -82,7 +82,7 @@ describe('Smoke Tests of the Smoke', () => {
 					result: testPage.check.custom >= metrics.Nodes
 				};
 			});
-			return smoke.run()
+			smoke.run()
 				.then((results) => {
 					expect(results.passed.length).toEqual(1);
 					expect(results.failed.length).toEqual(0);
@@ -101,7 +101,7 @@ describe('Smoke Tests of the Smoke', () => {
 				host: 'http://localhost:3004',
 				config: 'test/fixtures/smoke-session-token.js'
 			});
-			return smoke.run()
+			smoke.run()
 				.then((results) => {
 					expect(results.urlsTested).toEqual(1);
 					expect(results.passed.length).toEqual(1);
@@ -139,7 +139,7 @@ describe('Smoke Tests of the Smoke', () => {
 				config: 'test/fixtures/smoke-valid-headers.js'
 			});
 
-			return smoke.run().then((results) => {
+			smoke.run().then((results) => {
 				expect(results.passed.length).toEqual(1);
 				expect(results.failed.length).toEqual(0);
 				done();

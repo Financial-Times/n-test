@@ -23,9 +23,9 @@ references:
   npm_cache_keys:
     &npm_cache_keys
     keys:
-      - v3-dependency-npm-{{ checksum "package.json" }}-
-      - v3-dependency-npm-{{ checksum "package.json" }}
-      - v3-dependency-npm-
+      - v6-dependency-npm-{{ checksum "package.json" }}-
+      - v6-dependency-npm-{{ checksum "package.json" }}
+      - v6-dependency-npm-
 
   cache_npm_cache:
     &cache_npm_cache
