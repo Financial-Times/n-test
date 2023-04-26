@@ -10,7 +10,7 @@ references:
       - image: cimg/node:<< parameters.node-version >>-browsers
     parameters:
       node-version:
-        default: "16.14"
+        default: "18.16"
         type: string
 
   workspace_root: &workspace_root ~/project
@@ -143,14 +143,14 @@ workflows:
           name: build-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.14" ]
+              node-version: [ "16.14", "18.16" ]
       - test:
           requires:
             - build-v<< matrix.node-version >>
           name: test-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.14" ]
+              node-version: [ "16.14", "18.16" ]
 
   build-test-publish:
     when:
@@ -165,7 +165,7 @@ workflows:
           name: build-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.14" ]
+              node-version: [ "16.14", "18.16" ]
       - test:
           filters:
             <<: *filters_version_tag
@@ -174,7 +174,7 @@ workflows:
           name: test-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.14" ]
+              node-version: [ "16.14", "18.16" ]
       - publish:
           context: npm-publish-token
           filters:
@@ -197,7 +197,7 @@ workflows:
           name: build-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.14" ]
+              node-version: [ "16.14", "18.16" ]
       - test:
           requires:
             - build-v<< matrix.node-version >>
@@ -205,4 +205,4 @@ workflows:
           name: test-v<< matrix.node-version >>
           matrix:
             parameters:
-              node-version: [ "16.14" ]
+              node-version: [ "16.14", "18.16" ]
