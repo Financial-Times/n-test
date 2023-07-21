@@ -23,7 +23,7 @@ const messages = [
 	'Be the change request you want to see in the world.',
 	'Forget the module. What do YOU require?',
 	'Once upon a time, some idiot put display: none on the FT.com homepage on budget day. They survived. So can you.',
-	'If Slack can use 110% of CPU time, then so can you!',
+	'If Sophos can use 110% of CPU time, then so can you!',
 	'Think outside the box model.',
 	'If ever you feel like you\'re losing control, remember that there is a variant of you that\'s itching to take it.',
 	'git reset --HARD life',
