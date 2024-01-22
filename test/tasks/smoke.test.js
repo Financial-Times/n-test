@@ -1,20 +1,26 @@
 /*globals beforeAll, expect */
 
-const server = require('../server/app');
+const app = require('../server/app');
 const SmokeTest = require('../../lib/smoke/smoke-test');
 const { NTestConfigError } = require('../../lib/errors');
 const { spawn } = require('child_process');
 
 describe('Smoke Tests of the Smoke', () => {
 
+	let server
+
 	beforeAll(() => {
 		//Start the server
-		server.listen(3004);
+		server = app.listen(3004);
 
 		process.env.TEST_SESSIONS_URL =
 			'https://fuhn0pye67.execute-api.eu-west-1.amazonaws.com/prod'
 		process.env.TEST_SESSIONS_API_KEY = 'mock-api-key'
 	});
+
+	afterAll(() => {
+		server.close();
+	})
 
 	describe('Status checks', () => {
 
