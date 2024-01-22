@@ -1,3 +1,3 @@
 module.exports = async () => {
-  return process.env.CI ? { testResultsProcessor: "jest-junit" } : {};
+  return process.env.CI ? { reporters: ["default", "jest-junit"] } : {};
 };
