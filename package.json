@@ -47,13 +47,6 @@
     "node": "16.x || 18.x",
     "npm": "7.x || 8.x || 9.x"
   },
-  "husky": {
-    "hooks": {
-      "commit-msg": "node_modules/.bin/secret-squirrel-commitmsg",
-      "pre-commit": "node_modules/.bin/secret-squirrel",
-      "pre-push": "make verify -j3"
-    }
-  },
   "volta": {
     "node": "18.16.0"
   }
