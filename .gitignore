@@ -4,5 +4,5 @@
 .idea/n
 .pa11yci.js
 npm-debug.log
-.eslintrc.js
 .editorconfig
+/.toolkitstate
