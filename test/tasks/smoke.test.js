@@ -10,6 +10,10 @@ describe('Smoke Tests of the Smoke', () => {
 	beforeAll(() => {
 		//Start the server
 		server.listen(3004);
+
+		process.env.TEST_SESSIONS_URL =
+			'https://fuhn0pye67.execute-api.eu-west-1.amazonaws.com/prod'
+		process.env.TEST_SESSIONS_API_KEY = 'mock-api-key'
 	});
 
 	describe('Status checks', () => {
