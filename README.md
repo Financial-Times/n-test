@@ -188,9 +188,9 @@ Run next-article and next-router locally:
 
 ```sh
 $ cd ~/next-article
-$ make run
+$ npm start
 $ cd ~/next-router
-4 make run
+$ npm start
 ```
 
 Run ngrok on next-article's local port:
@@ -202,7 +202,7 @@ $ ./ngrok http 3002
 Run the test against the ngrok address provided (can be either http or https):
 
 ```
-make smoke TEST_URL=https://05bd2344ebca.ngrok.io
+n-test smoke -H https://05bd2344ebca.ngrok.io
 ```
 
 *Remarks*
