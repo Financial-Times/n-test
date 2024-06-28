@@ -4,4 +4,7 @@ plugins:
 hooks: {}
 options:
   "@dotcom-tool-kit/circleci":
-    nodeVersion: "18.16-browsers"
+    nodeVersion:
+      - '22.3-browsers'
+      - '20.15-browsers'
+      - '18.20-browsers'
