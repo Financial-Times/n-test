@@ -37,9 +37,9 @@
     "express": "^4.16.2",
     "jest": "^29.5.0",
     "jest-junit": "^5.1.0",
-    "dotcom-tool-kit": "^3.4.0",
-    "@dotcom-tool-kit/component": "^4.1.0",
-    "@dotcom-tool-kit/jest": "^3.4.0"
+    "dotcom-tool-kit": "^4.0.0",
+    "@dotcom-tool-kit/component": "^5.0.0",
+    "@dotcom-tool-kit/jest": "^4.0.0"
   },
   "engines": {
     "node": "18.x || 20.x || 22.x",
