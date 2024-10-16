@@ -154,25 +154,6 @@ app.get('/no-jank', (req, res) => {
 	`);
 });
 
-app.get('/actions', (req, res) => {
-	res.send(`
-		<body>
-			<style>
-				.content {
-					display: none;
-				}
-			</style>
-			<div class="content">Content</div>
-			<button class="my-button">Show content</button>
-			<script async defer>
-				document.querySelector('.my-button').addEventListener('click', () => {
-					document.querySelector('.content').style.display = 'block';
-				});
-			</script>
-		</body>
-	`);
-});
-
 if (!module.parent) {
 	app.listen(process.env.PORT || 3004);
 } else {
