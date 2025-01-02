@@ -25,7 +25,6 @@
     "chalk": "^2.3.0",
     "commander": "^3.0.0",
     "directly": "^2.0.6",
-    "get-pixels": "^3.3.2",
     "inquirer": "^7.0.0",
     "node-fetch": "^2.1.1",
     "puppeteer": "18.1.0",
