@@ -164,9 +164,6 @@ These can all be set at a suite level, as well as a URL level, like so:
 }
 ...
 ```
-### Actions
-
-n-test allows some basic actions (e.g. clicking, interacting with forms). This has been ported from [pa11y](https://github.com/pa11y/pa11y) - see the [section on their README](https://github.com/pa11y/pa11y/blob/5.0.4/README.md#actions) for more.
 
 ### FT User Sessions
 
