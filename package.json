@@ -27,18 +27,19 @@
     "directly": "^2.0.6",
     "inquirer": "^7.0.0",
     "node-fetch": "^2.1.1",
+    "picocolors": "^1.1.1",
     "puppeteer": "18.1.0",
     "webdriverio": "^9.5.0"
   },
   "devDependencies": {
+    "@dotcom-tool-kit/component": "^4.1.0",
+    "@dotcom-tool-kit/jest": "^3.4.0",
     "check-engine": "^1.10.1",
     "cookie-parser": "^1.4.3",
+    "dotcom-tool-kit": "^3.4.0",
     "express": "^4.16.2",
     "jest": "^29.5.0",
-    "jest-junit": "^5.1.0",
-    "dotcom-tool-kit": "^3.4.0",
-    "@dotcom-tool-kit/component": "^4.1.0",
-    "@dotcom-tool-kit/jest": "^3.4.0"
+    "jest-junit": "^5.1.0"
   },
   "engines": {
     "node": "18.x || 20.x || 22.x",

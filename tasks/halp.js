@@ -1,8 +1,8 @@
-const chalk = require('chalk');
+const pc = require('picocolors');
 
 const messages = [
-	chalk`It\'s time to put the {bold FUN} back in function`,
-	chalk`'You can do this. Just {italic breath} ☺️`,
+	`It\'s time to put the ${pc.bold('FUN')} back in function`,
+	`'You can do this. Just ${pc.italic('breath')} ☺️`,
 	'GO GET EM TIGER 🐯A',
 	'It\'s not the number of lines of code we write, but the lines of code that take our breath away.',
 	'Life is not about the software we write, but the friends we make along the way',
@@ -34,14 +34,14 @@ const messages = [
 ];
 
 const characters = [
-	chalk`{bgRed \n (* ^ ω ^)\n}`,
-	chalk`{bgGreen \n٩(◕‿◕｡)۶\n}`,
-	chalk`{bgBlue \n(⌒ω⌒)\n}`,
-	chalk`{bgYellow \n(*^‿^*)\n}`,
-	chalk`{bgCyan \n(*¯︶¯*)\n}`,
-	chalk`{bgWhite.cyan \n٩(◕‿◕)۶\n}`,
-	chalk`{magenta \n(✯◡✯)\n}`,
-	chalk`{blue \n(ﾉ◕ヮ◕)ﾉ*:･\n}`
+	pc.bgRed('\n (* ^ ω ^)\n}'),
+	pc.bgGreen('\n٩(◕‿◕｡)۶\n}'),
+	pc.bgBlue('\n(⌒ω⌒)\n}'),
+	pc.bgYellow('\n(*^‿^*)\n}'),
+	pc.bgCyan('\n(*¯︶¯*)\n}'),
+	pc.bgWhite('cyan \n٩(◕‿◕)۶\n}'),
+	pc.magenta('\n(✯◡✯)\n}'),
+	pc.blue('\n(ﾉ◕ヮ◕)ﾉ*:･\n')
 ];
 
 
